@@ -10,22 +10,39 @@ const Hero = () => {
 
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* Background */}
+      {/* Animated Background */}
       <div 
-        className="absolute inset-0 z-0"
+        className="absolute inset-0 z-0 animate-pulse"
         style={{
           backgroundImage: `url(${heroBg})`,
-          backgroundSize: 'cover',
+          backgroundSize: '110%',
           backgroundPosition: 'center',
-          filter: 'brightness(0.3)'
+          filter: 'brightness(0.3)',
+          animation: 'heroFloat 20s ease-in-out infinite'
         }}
       />
       
+      {/* Floating particles */}
+      <div className="absolute inset-0 z-10">
+        {[...Array(6)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute w-2 h-2 bg-primary/30 rounded-full animate-bounce"
+            style={{
+              left: `${15 + i * 15}%`,
+              top: `${20 + i * 10}%`,
+              animationDelay: `${i * 0.5}s`,
+              animationDuration: `${3 + i * 0.5}s`
+            }}
+          />
+        ))}
+      </div>
+      
       {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-background/70 to-background z-10" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-background/70 to-background z-20" />
       
       {/* Content */}
-      <div className="container mx-auto px-6 py-20 relative z-20 text-center">
+      <div className="container mx-auto px-6 py-20 relative z-30 text-center">
         <div className="max-w-4xl mx-auto">
           <div className="fade-in-up">
             <p className="text-primary font-mono text-lg mb-4">
@@ -94,7 +111,7 @@ const Hero = () => {
       </div>
       
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30">
         <div className="w-6 h-10 border-2 border-primary rounded-full flex justify-center">
           <div className="w-1 h-3 bg-primary rounded-full mt-2 animate-bounce"></div>
         </div>
