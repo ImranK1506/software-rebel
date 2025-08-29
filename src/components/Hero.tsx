@@ -1,0 +1,106 @@
+import { Button } from '@/components/ui/button';
+import { Github, Linkedin, Mail } from 'lucide-react';
+import heroBg from '@/assets/hero-bg.jpg';
+
+const Hero = () => {
+  const scrollToContact = () => {
+    const element = document.getElementById('contact');
+    element?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  return (
+    <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
+      {/* Background */}
+      <div 
+        className="absolute inset-0 z-0"
+        style={{
+          backgroundImage: `url(${heroBg})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          filter: 'brightness(0.3)'
+        }}
+      />
+      
+      {/* Gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-background/70 to-background z-10" />
+      
+      {/* Content */}
+      <div className="container mx-auto px-6 py-20 relative z-20 text-center">
+        <div className="max-w-4xl mx-auto">
+          <div className="fade-in-up">
+            <p className="text-primary font-mono text-lg mb-4">
+              Hello, I'm
+            </p>
+            <h1 className="text-hero text-gradient mb-6 leading-tight">
+              Software Rebel
+            </h1>
+            <h2 className="text-2xl md:text-3xl font-light text-muted-foreground mb-8 leading-relaxed">
+              Front-End Engineer crafting rebellious digital experiences
+              <br />
+              <span className="text-primary">7+ years</span> of breaking conventions and building the future
+            </h2>
+          </div>
+          
+          <div className="fade-in-up" style={{ animationDelay: '0.2s' }}>
+            <p className="text-lg text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed">
+              Specializing in large-scale web platforms, user-centric design, and cutting-edge technologies. 
+              I turn complex problems into elegant, performant solutions that users love.
+            </p>
+          </div>
+          
+          <div className="fade-in-up flex flex-col sm:flex-row gap-4 justify-center items-center mb-12" style={{ animationDelay: '0.4s' }}>
+            <Button 
+              onClick={scrollToContact}
+              size="lg"
+              className="bg-primary hover:bg-primary-glow text-primary-foreground glow-on-hover px-8 py-3"
+            >
+              Start a Project
+            </Button>
+            <Button 
+              variant="outline" 
+              size="lg"
+              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 py-3"
+              onClick={() => window.open('/resume.pdf', '_blank')}
+            >
+              View Resume
+            </Button>
+          </div>
+          
+          <div className="fade-in-up flex justify-center gap-6" style={{ animationDelay: '0.6s' }}>
+            <a 
+              href="https://github.com/softwarerebel" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-muted-foreground hover:text-primary transition-colors glow-on-hover p-2"
+            >
+              <Github size={24} />
+            </a>
+            <a 
+              href="https://linkedin.com/in/softwarerebel" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-muted-foreground hover:text-primary transition-colors glow-on-hover p-2"
+            >
+              <Linkedin size={24} />
+            </a>
+            <a 
+              href="mailto:hello@softwarerebel.com"
+              className="text-muted-foreground hover:text-primary transition-colors glow-on-hover p-2"
+            >
+              <Mail size={24} />
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      {/* Scroll indicator */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
+        <div className="w-6 h-10 border-2 border-primary rounded-full flex justify-center">
+          <div className="w-1 h-3 bg-primary rounded-full mt-2 animate-bounce"></div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Hero;
