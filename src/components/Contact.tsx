@@ -179,7 +179,7 @@ const Contact = () => {
                 
                 <div className="mt-8 p-4 bg-gradient-to-r from-primary/10 to-primary-glow/10 rounded-lg border border-primary/20">
                   <p className="text-sm text-muted-foreground">
-                    <span className="text-primary font-semibold">Open to freelance:</span> Currently accepting new projects for Q1 2024. 
+                    <span className="text-primary font-semibold">Open to freelance:</span> Currently accepting new projects for Q1 2026. 
                     Let's build something extraordinary together.
                   </p>
                 </div>
