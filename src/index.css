@@ -214,10 +214,19 @@
   }
 }
 
+@keyframes galaxyRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 @keyframes twinkle {
   0%, 100% {
-    opacity: 0.3;
-    transform: scale(1);
+    opacity: 0.2;
+    transform: scale(0.8);
   }
   50% {
     opacity: 1;
@@ -227,4 +236,30 @@
 
 .animate-twinkle {
   animation: twinkle 2s ease-in-out infinite;
+}
+
+.galaxy-container {
+  animation: galaxyRotate 300s linear infinite;
+}
+
+.galaxy-arms {
+  background: 
+    radial-gradient(ellipse 80% 20% at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(ellipse 80% 20% at 80% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 15% at 50% 30%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 15% at 50% 70%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+  transform-origin: center;
+  animation: galaxyRotate 400s linear infinite reverse;
+}
+
+.star-large {
+  filter: brightness(1.2);
+}
+
+.star-medium {
+  filter: brightness(0.9);
+}
+
+.star-small {
+  filter: brightness(0.6);
 }

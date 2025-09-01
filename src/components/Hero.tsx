@@ -2,17 +2,56 @@ import { Button } from '@/components/ui/button';
 import { Github, Linkedin, Mail } from 'lucide-react';
 import heroBg from '@/assets/hero-bg.jpg';
 
-// Generate stable star positions once
-const generateStars = () => Array.from({ length: 50 }, (_, i) => ({
-  id: i,
-  left: Math.random() * 100,
-  top: Math.random() * 100,
-  size: Math.random() * 2 + 1,
-  delay: Math.random() * 3,
-  duration: 2 + Math.random() * 2
-}));
+// Generate galaxy with multiple star layers
+const generateGalaxy = () => {
+  const galaxy = [];
+  
+  // Large bright stars
+  for (let i = 0; i < 30; i++) {
+    galaxy.push({
+      id: `large-${i}`,
+      left: Math.random() * 100,
+      top: Math.random() * 100,
+      size: Math.random() * 3 + 2,
+      opacity: Math.random() * 0.8 + 0.2,
+      delay: Math.random() * 4,
+      duration: 3 + Math.random() * 3,
+      type: 'large'
+    });
+  }
+  
+  // Medium stars
+  for (let i = 0; i < 100; i++) {
+    galaxy.push({
+      id: `medium-${i}`,
+      left: Math.random() * 100,
+      top: Math.random() * 100,
+      size: Math.random() * 2 + 1,
+      opacity: Math.random() * 0.6 + 0.1,
+      delay: Math.random() * 3,
+      duration: 2 + Math.random() * 2,
+      type: 'medium'
+    });
+  }
+  
+  // Small distant stars
+  for (let i = 0; i < 200; i++) {
+    galaxy.push({
+      id: `small-${i}`,
+      left: Math.random() * 100,
+      top: Math.random() * 100,
+      size: Math.random() * 1 + 0.5,
+      opacity: Math.random() * 0.4 + 0.1,
+      delay: Math.random() * 2,
+      duration: 1.5 + Math.random() * 1.5,
+      type: 'small'
+    });
+  }
+  
+  return galaxy;
+};
 
-const stars = generateStars();
+const galaxy = generateGalaxy();
 
 const Hero = () => {
   const scrollToContact = () => {
@@ -34,25 +73,37 @@ const Hero = () => {
         }}
       />
       
-      {/* Animated Stars */}
-      <div className="absolute inset-0 z-10">
-        {stars.map((star) => (
+      {/* Galaxy Background */}
+      <div className="absolute inset-0 z-10 galaxy-container">
+        {galaxy.map((star) => (
           <div
-            key={`star-${star.id}`}
-            className="absolute animate-twinkle"
+            key={star.id}
+            className={`absolute animate-twinkle star-${star.type}`}
             style={{
               left: `${star.left}%`,
               top: `${star.top}%`,
-              width: `${star.size + 1}px`,
-              height: `${star.size + 1}px`,
+              width: `${star.size}px`,
+              height: `${star.size}px`,
+              opacity: star.opacity,
               animationDelay: `${star.delay}s`,
               animationDuration: `${star.duration}s`,
-              background: 'radial-gradient(circle, #ffffff 0%, #ffffff 70%, transparent 100%)',
+              background: star.type === 'large' 
+                ? 'radial-gradient(circle, #ffffff 0%, #e6f3ff 40%, transparent 70%)'
+                : star.type === 'medium'
+                ? 'radial-gradient(circle, #ffffff 0%, #f0f8ff 60%, transparent 80%)'
+                : 'radial-gradient(circle, #ffffff 20%, transparent 60%)',
               borderRadius: '50%',
-              boxShadow: '0 0 6px #ffffff, 0 0 12px #ffffff80'
+              boxShadow: star.type === 'large' 
+                ? '0 0 8px #ffffff, 0 0 16px #ffffff40, 0 0 24px #ffffff20'
+                : star.type === 'medium'
+                ? '0 0 4px #ffffff, 0 0 8px #ffffff40'
+                : '0 0 2px #ffffff60'
             }}
           />
         ))}
+        
+        {/* Galaxy spiral arms effect */}
+        <div className="absolute inset-0 galaxy-arms opacity-20" />
       </div>
 
       {/* Floating particles */}
