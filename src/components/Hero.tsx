@@ -92,12 +92,6 @@ const Hero = () => {
                 : star.type === 'medium'
                 ? '#ffffff'
                 : '#ffffff',
-              borderRadius: '50%',
-              boxShadow: star.type === 'large' 
-                ? '0 0 8px #ffffff, 0 0 16px #ffffff40, 0 0 24px #ffffff20'
-                : star.type === 'medium'
-                ? '0 0 4px #ffffff, 0 0 8px #ffffff40'
-                : '0 0 2px #ffffff60'
             }}
           />
         ))}
