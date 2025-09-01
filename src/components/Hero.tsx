@@ -39,15 +39,17 @@ const Hero = () => {
         {stars.map((star) => (
           <div
             key={`star-${star.id}`}
-            className="absolute bg-white/90 rounded-full animate-twinkle"
+            className="absolute animate-twinkle"
             style={{
               left: `${star.left}%`,
               top: `${star.top}%`,
-              width: `${star.size}px`,
-              height: `${star.size}px`,
+              width: `${star.size + 1}px`,
+              height: `${star.size + 1}px`,
               animationDelay: `${star.delay}s`,
               animationDuration: `${star.duration}s`,
-              boxShadow: '0 0 8px rgba(255, 255, 255, 0.9)'
+              background: 'radial-gradient(circle, #ffffff 0%, #ffffff 70%, transparent 100%)',
+              borderRadius: '50%',
+              boxShadow: '0 0 6px #ffffff, 0 0 12px #ffffff80'
             }}
           />
         ))}
