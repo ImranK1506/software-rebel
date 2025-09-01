@@ -106,7 +106,7 @@ const Hero = () => {
             <h2 className="text-2xl md:text-3xl font-light text-muted-foreground mb-8 leading-relaxed">
               Front-End Engineer crafting rebellious digital experiences
               <br />
-              With <span className="text-primary">many years</span> of breaking conventions and building the future
+              <span className="text-primary">7+ years</span> of breaking conventions and building the future
             </h2>
           </div>
           
