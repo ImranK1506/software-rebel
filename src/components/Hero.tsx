@@ -1,6 +1,5 @@
 import { Button } from '@/components/ui/button';
 import { Github, Linkedin, Mail } from 'lucide-react';
-// import heroBg from '@/assets/hero-bg.jpg';
 
 // Generate galaxy with multiple star layers
 const generateGalaxy = () => {
