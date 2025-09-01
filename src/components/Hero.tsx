@@ -137,7 +137,7 @@ const Hero = () => {
           
           <div className="fade-in-up flex justify-center gap-6" style={{ animationDelay: '0.6s' }}>
             <a 
-              href="https://github.com/softwarerebel" 
+              href="https://github.com/ImranK1506" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary transition-colors glow-on-hover p-2 rounded-lg"
@@ -145,7 +145,7 @@ const Hero = () => {
               <Github size={24} />
             </a>
             <a 
-              href="https://linkedin.com/in/softwarerebel" 
+              href="https://https://www.linkedin.com/in/imran-khan-se/" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary transition-colors glow-on-hover p-2 rounded-lg"
