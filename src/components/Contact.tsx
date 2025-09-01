@@ -15,13 +15,13 @@ const Contact = () => {
     {
       icon: <Phone className="w-5 h-5" />,
       label: "Phone",
-      value: "+1 (555) 123-4567",
-      href: "tel:+15551234567"
+      value: "+31637336418",
+      href: "tel:+31637336418"
     },
     {
       icon: <MapPin className="w-5 h-5" />,
       label: "Location",
-      value: "San Francisco, CA",
+      value: "Amsterdam, The Netherlands",
       href: "#"
     }
   ];
