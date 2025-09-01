@@ -95,9 +95,6 @@ const Hero = () => {
             }}
           />
         ))}
-        
-        {/* Galaxy spiral arms effect */}
-        <div className="absolute inset-0 galaxy-arms opacity-20" />
       </div>
 
       
