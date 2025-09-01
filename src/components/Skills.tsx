@@ -117,8 +117,8 @@ const Skills = () => {
                 Always Learning
               </h3>
               <p className="text-muted-foreground max-w-2xl mx-auto">
-                The web moves fast, and so do I. Currently exploring WebAssembly, 
-                advanced React patterns, and the latest in web performance optimization. 
+                The web moves fast, and so do I. Currently exploring AI agents, 
+                advanced Vue patterns, and the latest in web performance optimization. 
                 The rebellion never stops evolving.
               </p>
             </div>
