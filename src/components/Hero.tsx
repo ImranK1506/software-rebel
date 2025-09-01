@@ -2,6 +2,18 @@ import { Button } from '@/components/ui/button';
 import { Github, Linkedin, Mail } from 'lucide-react';
 import heroBg from '@/assets/hero-bg.jpg';
 
+// Generate stable star positions once
+const generateStars = () => Array.from({ length: 50 }, (_, i) => ({
+  id: i,
+  left: Math.random() * 100,
+  top: Math.random() * 100,
+  size: Math.random() * 2 + 1,
+  delay: Math.random() * 3,
+  duration: 2 + Math.random() * 2
+}));
+
+const stars = generateStars();
+
 const Hero = () => {
   const scrollToContact = () => {
     const element = document.getElementById('contact');
@@ -24,24 +36,25 @@ const Hero = () => {
       
       {/* Animated Stars */}
       <div className="absolute inset-0 z-10">
-        {[...Array(50)].map((_, i) => (
+        {stars.map((star) => (
           <div
-            key={`star-${i}`}
-            className="absolute bg-white rounded-full animate-twinkle"
+            key={`star-${star.id}`}
+            className="absolute bg-white/90 rounded-full animate-twinkle"
             style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              width: `${Math.random() * 3 + 1}px`,
-              height: `${Math.random() * 3 + 1}px`,
-              animationDelay: `${Math.random() * 3}s`,
-              animationDuration: `${2 + Math.random() * 2}s`
+              left: `${star.left}%`,
+              top: `${star.top}%`,
+              width: `${star.size}px`,
+              height: `${star.size}px`,
+              animationDelay: `${star.delay}s`,
+              animationDuration: `${star.duration}s`,
+              boxShadow: '0 0 8px rgba(255, 255, 255, 0.9)'
             }}
           />
         ))}
       </div>
 
       {/* Floating particles */}
-      <div className="absolute inset-0 z-10">
+      <div className="absolute inset-0 z-20">
         {[...Array(6)].map((_, i) => (
           <div
             key={i}
@@ -57,10 +70,10 @@ const Hero = () => {
       </div>
       
       {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-background/70 to-background z-20" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/60 to-background z-30" />
       
       {/* Content */}
-      <div className="container mx-auto px-6 py-20 relative z-30 text-center">
+      <div className="container mx-auto px-6 py-20 relative z-40 text-center">
         <div className="max-w-4xl mx-auto">
           <div className="fade-in-up">
             <p className="text-primary font-mono text-lg mb-4">
@@ -129,7 +142,7 @@ const Hero = () => {
       </div>
       
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30">
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-40">
         <div className="w-6 h-10 border-2 border-primary rounded-full flex justify-center">
           <div className="w-1 h-3 bg-primary rounded-full mt-2 animate-bounce"></div>
         </div>
