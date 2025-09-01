@@ -34,7 +34,7 @@ const About = () => {
               About the Rebel
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              With over 7 years in the trenches of front-end development, I've built everything 
+              With over many years in the trenches of front-end development, I've built everything 
               from startup MVPs to enterprise-scale platforms serving millions of users.
             </p>
           </div>
