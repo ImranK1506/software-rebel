@@ -101,12 +101,12 @@ const Hero = () => {
               Hello, I'm
             </p>
             <h1 className="text-hero text-gradient mb-6 leading-tight">
-              Imran Khan [Software Rebel]
+              Imran Khan
             </h1>
             <h2 className="text-2xl md:text-3xl font-light text-muted-foreground mb-8 leading-relaxed">
               Front-End Engineer crafting rebellious digital experiences
               <br />
-              <span className="text-primary">Many years</span> of breaking conventions and building the future
+              <span className="text-primary">Been through many years</span> of breaking conventions and building the future
             </h2>
           </div>
           
