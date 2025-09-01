@@ -64,13 +64,6 @@ const Hero = () => {
       {/* Animated Background */}
       <div 
         className="absolute inset-0 z-0 animate-pulse"
-        {/* style={{
-          backgroundImage: `url(${heroBg})`,
-          backgroundSize: '110%',
-          backgroundPosition: 'center',
-          filter: 'brightness(0.3)',
-          animation: 'heroFloat 20s ease-in-out infinite'
-        }} */}
       />
       
       {/* Galaxy Background */}
