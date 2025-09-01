@@ -22,6 +22,24 @@ const Hero = () => {
         }}
       />
       
+      {/* Animated Stars */}
+      <div className="absolute inset-0 z-10">
+        {[...Array(50)].map((_, i) => (
+          <div
+            key={`star-${i}`}
+            className="absolute bg-white rounded-full animate-twinkle"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              width: `${Math.random() * 3 + 1}px`,
+              height: `${Math.random() * 3 + 1}px`,
+              animationDelay: `${Math.random() * 3}s`,
+              animationDuration: `${2 + Math.random() * 2}s`
+            }}
+          />
+        ))}
+      </div>
+
       {/* Floating particles */}
       <div className="absolute inset-0 z-10">
         {[...Array(6)].map((_, i) => (
