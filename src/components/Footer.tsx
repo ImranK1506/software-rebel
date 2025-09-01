@@ -15,7 +15,7 @@ const Footer = () => {
             
             <div className="text-center md:text-right">
               <p className="text-muted-foreground text-sm mb-1">
-                © 2024 Software Rebel. All rights reserved.
+                © {new Date().getFullYear()} Software Rebel. All rights reserved.
               </p>
               <p className="text-xs text-muted-foreground font-mono">
                 Crafted with React, TypeScript & rebellious spirit
