@@ -88,10 +88,10 @@ const Hero = () => {
               animationDelay: `${star.delay}s`,
               animationDuration: `${star.duration}s`,
               background: star.type === 'large' 
-                ? 'radial-gradient(circle, #ffffff 0%, #e6f3ff 40%, transparent 70%)'
+                ? '#ffffff'
                 : star.type === 'medium'
-                ? 'radial-gradient(circle, #ffffff 0%, #f0f8ff 60%, transparent 80%)'
-                : 'radial-gradient(circle, #ffffff 20%, transparent 60%)',
+                ? '#ffffff'
+                : '#ffffff',
               borderRadius: '50%',
               boxShadow: star.type === 'large' 
                 ? '0 0 8px #ffffff, 0 0 16px #ffffff40, 0 0 24px #ffffff20'
@@ -176,6 +176,13 @@ const Hero = () => {
               <Mail size={24} />
             </a>
           </div>
+        </div>
+      </div>
+      
+      {/* Scroll indicator */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-40">
+        <div className="w-6 h-10 border-2 border-primary rounded-full flex justify-center">
+          <div className="w-1 h-3 bg-primary rounded-full mt-2 animate-bounce"></div>
         </div>
       </div>
       
