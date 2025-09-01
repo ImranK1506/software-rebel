@@ -106,21 +106,6 @@ const Hero = () => {
         <div className="absolute inset-0 galaxy-arms opacity-20" />
       </div>
 
-      {/* Floating particles */}
-      <div className="absolute inset-0 z-20">
-        {[...Array(6)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-2 h-2 bg-primary/30 rounded-full animate-bounce"
-            style={{
-              left: `${15 + i * 15}%`,
-              top: `${20 + i * 10}%`,
-              animationDelay: `${i * 0.5}s`,
-              animationDuration: `${3 + i * 0.5}s`
-            }}
-          />
-        ))}
-      </div>
       
       {/* Gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/60 to-background z-30" />
