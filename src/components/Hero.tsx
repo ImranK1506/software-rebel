@@ -140,7 +140,7 @@ const Hero = () => {
               href="https://github.com/softwarerebel" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-primary transition-colors glow-on-hover p-2"
+              className="text-muted-foreground hover:text-primary transition-colors glow-on-hover p-2 rounded-lg"
             >
               <Github size={24} />
             </a>
@@ -148,13 +148,13 @@ const Hero = () => {
               href="https://linkedin.com/in/softwarerebel" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-primary transition-colors glow-on-hover p-2"
+              className="text-muted-foreground hover:text-primary transition-colors glow-on-hover p-2 rounded-lg"
             >
               <Linkedin size={24} />
             </a>
             <a 
               href="mailto:hello@softwarerebel.com"
-              className="text-muted-foreground hover:text-primary transition-colors glow-on-hover p-2"
+              className="text-muted-foreground hover:text-primary transition-colors glow-on-hover p-2 rounded-lg"
             >
               <Mail size={24} />
             </a>
