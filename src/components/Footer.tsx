@@ -22,7 +22,11 @@ const Footer = () => {
               </p>
             </div>
           </div>
-          
+          <div className="border-t border-border mt-8 pt-8 text-center">
+            <p className="text-xs text-muted-foreground font-mono">
+              // This portfolio was built to showcase what's possible when you dare to be different
+           </p>
+          </div>
         </div>
       </div>
     </footer>
