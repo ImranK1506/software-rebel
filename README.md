@@ -105,12 +105,4 @@ npm run build
 
 This project is open source and available under the [MIT License](LICENSE).
 
-## 📞 Contact
-
-- **GitHub**: [Your GitHub Profile]
-- **LinkedIn**: [Your LinkedIn Profile]
-- **Email**: [Your Email]
-
----
-
 Built with ❤️ using React, TypeScript, and Tailwind CSS
