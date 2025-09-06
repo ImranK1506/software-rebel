@@ -16,9 +16,8 @@ concurrency:
 
 env:
   NODE_VERSION: 20
-  # Set this to your custom domain only if you’re using one (e.g. softwarerebel.com).
-  # Leave it empty (or remove) if you’re not using a custom domain.
-  CUSTOM_DOMAIN: ""
+  # Set this if/when you use a custom domain (e.g., softwarerebel.com)
+  CUSTOM_DOMAIN: "softwarerebel.com"
 
 jobs:
   build:
@@ -30,14 +29,42 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
 
-      - run: npm ci
-      - run: npm run build
+      # Enable Corepack to support Yarn/PNPM if present
+      - name: Enable Corepack
+        run: corepack enable
 
-      # SPA fallback for react-router on GitHub Pages
+      # Install deps depending on the lockfile present
+      - name: Install dependencies
+        run: |
+          if [ -f yarn.lock ]; then
+            echo "Using Yarn"
+            yarn --version
+            yarn install --frozen-lockfile
+          elif [ -f pnpm-lock.yaml ]; then
+            echo "Using PNPM"
+            pnpm --version || corepack prepare pnpm@latest --activate
+            pnpm install --frozen-lockfile
+          elif [ -f package-lock.json ]; then
+            echo "Using npm (ci)"
+            npm ci
+          else
+            echo "No lockfile found, using npm install"
+            npm install
+          fi
+
+      - name: Build
+        run: |
+          if [ -f yarn.lock ]; then
+            yarn build
+          elif [ -f pnpm-lock.yaml ]; then
+            pnpm build
+          else
+            npm run build
+          fi
+
       - name: Add SPA 404 fallback
         run: cp dist/index.html dist/404.html
 
-      # Optional: add CNAME for custom domain
       - name: Add CNAME (custom domain)
         if: env.CUSTOM_DOMAIN != ''
         run: echo "$CUSTOM_DOMAIN" > dist/CNAME
