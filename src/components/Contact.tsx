@@ -27,18 +27,18 @@ const Contact = () => {
     {
       icon: <Github className="w-5 h-5" />,
       label: "GitHub",
-      href: "https://github.com/softwarerebel"
+      href: "https://github.com/ImranK1506"
     },
     {
       icon: <Linkedin className="w-5 h-5" />,
       label: "LinkedIn",
-      href: "https://linkedin.com/in/softwarerebel"
+      href: "https://www.linkedin.com/in/imran-khan-se/"
     },
-    {
-      icon: <Twitter className="w-5 h-5" />,
-      label: "Twitter",
-      href: "https://twitter.com/softwarerebel"
-    }
+    // {
+    //   icon: <Twitter className="w-5 h-5" />,
+    //   label: "Twitter",
+    //   href: "https://twitter.com/softwarerebel"
+    // }
   ];
 
   return (
