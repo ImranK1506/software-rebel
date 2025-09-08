@@ -1,7 +1,4 @@
 import { Card } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
 import { Mail, MapPin, Phone, Github, Linkedin, Twitter } from 'lucide-react';
 
 const Contact = () => {
@@ -58,78 +55,7 @@ const Contact = () => {
             </p>
           </div>
           
-          <div className="grid lg:grid-cols-2 gap-12">
-            {/* Contact Form */}
-            <Card className="rebel-card">
-              <h3 className="text-xl font-bold text-foreground mb-6">
-                Start a Conversation
-              </h3>
-              
-              <form className="space-y-6">
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="text-sm font-medium text-foreground block mb-2">
-                      First Name
-                    </label>
-                    <Input 
-                      placeholder="Aretoo"
-                      className="bg-secondary border-border focus:border-primary"
-                    />
-                  </div>
-                  <div>
-                    <label className="text-sm font-medium text-foreground block mb-2">
-                      Last Name
-                    </label>
-                    <Input 
-                      placeholder="Detoo"
-                      className="bg-secondary border-border focus:border-primary"
-                    />
-                  </div>
-                </div>
-                
-                <div>
-                  <label className="text-sm font-medium text-foreground block mb-2">
-                    Email
-                  </label>
-                  <Input 
-                    type="email"
-                    placeholder="r2d2@example.com"
-                    className="bg-secondary border-border focus:border-primary"
-                  />
-                </div>
-                
-                <div>
-                  <label className="text-sm font-medium text-foreground block mb-2">
-                    Project Type
-                  </label>
-                  <Input 
-                    placeholder="Web App, E-commerce, Dashboard, etc."
-                    className="bg-secondary border-border focus:border-primary"
-                  />
-                </div>
-                
-                <div>
-                  <label className="text-sm font-medium text-foreground block mb-2">
-                    Project Details
-                  </label>
-                  <Textarea 
-                    placeholder="Tell me about your vision, timeline, and any specific requirements..."
-                    rows={6}
-                    className="bg-secondary border-border focus:border-primary resize-none"
-                  />
-                </div>
-                
-                <Button 
-                  type="submit"
-                  className="w-full bg-primary hover:bg-primary-glow text-primary-foreground glow-on-hover"
-                >
-                  Send Message
-                </Button>
-              </form>
-            </Card>
-            
-            {/* Contact Info */}
-            <div className="space-y-8">
+          <div className="max-w-2xl mx-auto space-y-8">
               <Card className="rebel-card">
                 <h3 className="text-xl font-bold text-foreground mb-6">
                   Get In Touch
@@ -184,7 +110,6 @@ const Contact = () => {
                   </p>
                 </div>
               </Card>
-            </div>
           </div>
         </div>
       </div>
