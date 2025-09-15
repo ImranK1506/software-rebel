@@ -27,28 +27,28 @@ const Header = () => {
             &lt;softwarerebel /&gt;
           </div>
           
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-4">
             <button 
               onClick={() => scrollToSection('about')}
-              className="text-muted-foreground hover:text-primary transition-colors"
+              className="px-4 py-2 rounded-lg text-muted-foreground hover:text-primary transition-all duration-300 hover:bg-background/20 hover:backdrop-blur-sm hover:border hover:border-border/30 hover:shadow-lg"
             >
               About
             </button>
             <button 
               onClick={() => scrollToSection('projects')}
-              className="text-muted-foreground hover:text-primary transition-colors"
+              className="px-4 py-2 rounded-lg text-muted-foreground hover:text-primary transition-all duration-300 hover:bg-background/20 hover:backdrop-blur-sm hover:border hover:border-border/30 hover:shadow-lg"
             >
               Projects
             </button>
             <button 
               onClick={() => scrollToSection('skills')}
-              className="text-muted-foreground hover:text-primary transition-colors"
+              className="px-4 py-2 rounded-lg text-muted-foreground hover:text-primary transition-all duration-300 hover:bg-background/20 hover:backdrop-blur-sm hover:border hover:border-border/30 hover:shadow-lg"
             >
               Skills
             </button>
             <button 
               onClick={() => scrollToSection('contact')}
-              className="text-muted-foreground hover:text-primary transition-colors"
+              className="px-4 py-2 rounded-lg text-muted-foreground hover:text-primary transition-all duration-300 hover:bg-background/20 hover:backdrop-blur-sm hover:border hover:border-border/30 hover:shadow-lg"
             >
               Contact
             </button>
