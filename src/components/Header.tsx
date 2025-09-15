@@ -23,7 +23,10 @@ const Header = () => {
     }`}>
       <nav className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <div className="text-xl font-bold text-gradient font-mono">
+          <div 
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="text-xl font-bold text-gradient font-mono cursor-pointer hover:opacity-80 transition-opacity"
+          >
             &lt;softwarerebel /&gt;
           </div>
           
