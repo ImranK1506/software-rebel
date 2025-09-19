@@ -145,7 +145,7 @@ const Hero = () => {
               <Github size={24} />
             </a>
             <a 
-              href="https://https://www.linkedin.com/in/imran-khan-se/" 
+              href="https://www.linkedin.com/in/imran-khan-621342104/"
               target="_blank" 
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary transition-colors glow-on-hover p-2 rounded-lg"
