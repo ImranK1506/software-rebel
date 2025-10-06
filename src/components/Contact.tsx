@@ -6,8 +6,8 @@ const Contact = () => {
     {
       icon: <Mail className="w-5 h-5" />,
       label: "Email",
-      value: "hello@softwarerebel.com",
-      href: "mailto:hello@softwarerebel.com"
+      value: "imran@softwarerebel.com",
+      href: "mailto:imran@softwarerebel.com"
     },
     {
       icon: <Phone className="w-5 h-5" />,
