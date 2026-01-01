@@ -34,12 +34,12 @@ cd software-rebel-portfolio
 
 2. Install dependencies:
 ```bash
-npm install
+pnpm install
 ```
 
 3. Start the development server:
 ```bash
-npm run dev
+pnpm run dev
 ```
 
 4. Open [http://localhost:8080](http://localhost:8080) in your browser.
@@ -88,7 +88,7 @@ The project can be deployed on any static hosting platform:
 
 1. Build the project:
 ```bash
-npm run build
+pnpm run build
 ```
 
 2. Deploy the `dist` folder to your hosting platform of choice.
