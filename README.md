@@ -48,7 +48,7 @@ pnpm run dev
 
 ```
 src/
-├── components/          # React components
+├── components/         # React components
 │   ├── ui/             # shadcn/ui components
 │   ├── About.tsx       # About section
 │   ├── Contact.tsx     # Contact form
