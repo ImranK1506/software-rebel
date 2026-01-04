@@ -24,26 +24,6 @@ A modern, responsive portfolio website showcasing the work and expertise of a re
 - **Animations**: CSS animations and transitions
 - **Icons**: Lucide React
 
-## 📦 Installation
-
-1. Clone the repository:
-```bash
-git clone [your-repo-url]
-cd software-rebel-portfolio
-```
-
-2. Install dependencies:
-```bash
-pnpm install
-```
-
-3. Start the development server:
-```bash
-pnpm run dev
-```
-
-4. Open [http://localhost:8080](http://localhost:8080) in your browser.
-
 ## 🏗️ Project Structure
 
 ```
