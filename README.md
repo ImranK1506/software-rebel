@@ -62,25 +62,6 @@ The project uses a custom design system with semantic color tokens defined in `i
 - **Tablet**: 768px - 1024px
 - **Desktop**: > 1024px
 
-## 🚀 Deployment
-
-The project can be deployed on any static hosting platform:
-
-1. Build the project:
-```bash
-pnpm run build
-```
-
-2. Deploy the `dist` folder to your hosting platform of choice.
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
 ## 📄 License
 
 This project is open source and available under the [MIT License](LICENSE).
