@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Send, MessageSquare, X } from 'lucide-react';
+import { Send, X } from 'lucide-react';
 
 interface Message {
   role: 'user' | 'assistant';
