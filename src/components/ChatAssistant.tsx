@@ -18,7 +18,7 @@ const SYSTEM_PROMPT = `You are an AI assistant for Imran Khan's portfolio websit
 Key Information:
 - Name: Imran Khan
 - Role: Front-End Engineer
-- Core Skills: React, Vue, TypeScript, StencilJS, Python
+- Core Skills: React, Vue, TypeScript, StencilJs, Python
 - Current Status: Open to freelance projects for Q2 2026
 - Tagline: "Let's build something extraordinary together"
 
@@ -123,7 +123,7 @@ const ChatAssistant: React.FC = () => {
       console.error('Chat error:', error);
       setMessages(prev => [...prev, {
         role: 'assistant',
-        content: "I'm having trouble connecting right now. Please try again or contact Imran directly through thec contact details on the website."
+        content: "I'm having trouble connecting right now. Please try again or contact Imran directly through the contact details on the website."
       }]);
     } finally {
       setIsLoading(false);
