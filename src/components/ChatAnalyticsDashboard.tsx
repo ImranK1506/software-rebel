@@ -85,7 +85,7 @@ const ChatAnalyticsDashboard: React.FC = () => {
       'Availability & Hiring': ['available', 'hire', 'freelance', 'work', 'project', 'rate', 'cost'],
       'Experience': ['experience', 'years', 'worked', 'built', 'background'],
       'Projects': ['project', 'portfolio', 'built', 'created', 'example'],
-      'Contact': ['contact', 'email', 'reach', 'get in touch']
+      'Contact': ['contact', 'email', 'reach', 'get in touch', 'phone']
     };
 
     const topicCounts: { [key: string]: number } = {};
