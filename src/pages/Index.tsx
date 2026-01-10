@@ -7,6 +7,7 @@ import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import ChatAssistant from '@/components/ChatAssistant';
 import ChatAnalyticsDashboard  from '@/components/ChatAnalyticsDashboard.tsx';
+import ProjectProposalGenerator from '@/components/ProjectProposalGenerator.tsx';
 
 const Index = () => {
   return (
@@ -21,6 +22,7 @@ const Index = () => {
 
       <ChatAssistant />
       <ChatAnalyticsDashboard />
+      <ProjectProposalGenerator />
     </div>
   );
 };
