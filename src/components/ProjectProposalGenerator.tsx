@@ -11,7 +11,6 @@ interface ProjectProposal {
   estimatedCost: string;
 }
 
-// System prompt moved outside component to avoid recreation on each render
 const SYSTEM_PROMPT = `You are a project proposal assistant for Imran Khan, a Front-End Engineer specializing in React, Vue, TypeScript, StencilJS, and Python.
 
 When given a project idea, create a detailed technical proposal in JSON format with:
@@ -27,7 +26,6 @@ Make it professional, specific, and tailored to Imran's tech stack. Be realistic
 
 IMPORTANT: Respond ONLY with valid JSON. No markdown, no backticks, no preamble. Just the JSON object.`;
 
-// Example ideas moved outside component (constant data)
 const EXAMPLE_IDEAS = [
   "A real-time collaboration tool for remote teams",
   "An AI-powered content management system",
@@ -42,10 +40,8 @@ const ProjectProposalGenerator: React.FC = () => {
   const [proposal, setProposal] = useState<ProjectProposal | null>(null);
   const [error, setError] = useState<string | null>(null);
 
-  // Memoized check for valid input
   const canGenerate = useMemo(() => projectIdea.trim().length > 10, [projectIdea]);
 
-  // useCallback prevents function recreation on each render
   const generateProposal = useCallback(async () => {
     if (!canGenerate) return;
 
@@ -77,11 +73,9 @@ const ProjectProposalGenerator: React.FC = () => {
         throw new Error('Invalid response format');
       }
 
-      // Clean and parse response
       const text = data.content[0].text.replace(/```json|```/g, '').trim();
       const proposalData: ProjectProposal = JSON.parse(text);
 
-      // Validate proposal has required fields
       if (!proposalData.title || !proposalData.techStack) {
         throw new Error('Invalid proposal data');
       }
@@ -225,7 +219,6 @@ Ready to discuss this project? Contact Imran Khan at softwarerebel.com`;
                 </p>
               </div>
 
-              {/* Error Display */}
               {error && (
                 <div className="bg-destructive/10 border border-destructive/30 rounded-lg p-4 text-destructive text-sm">
                   {error}
@@ -288,7 +281,6 @@ Ready to discuss this project? Contact Imran Khan at softwarerebel.com`;
   );
 };
 
-// Extracted proposal display component for better organization
 const ProposalDisplay: React.FC<{
   proposal: ProjectProposal;
   onDownload: () => void;
