@@ -33,8 +33,11 @@ const EXAMPLE_IDEAS = [
   "A cryptocurrency portfolio tracker with alerts"
 ] as const;
 
-const ProjectProposalGenerator: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false);
+interface ProjectProposalGeneratorProps {
+  onClose: () => void;
+}
+
+const ProjectProposalGenerator: React.FC<ProjectProposalGeneratorProps> = ({ onClose }) => {
   const [projectIdea, setProjectIdea] = useState('');
   const [isGenerating, setIsGenerating] = useState(false);
   const [proposal, setProposal] = useState<ProjectProposal | null>(null);
@@ -42,6 +45,7 @@ const ProjectProposalGenerator: React.FC = () => {
 
   const canGenerate = useMemo(() => projectIdea.trim().length > 10, [projectIdea]);
 
+  // useCallback prevents function recreation on each render
   const generateProposal = useCallback(async () => {
     if (!canGenerate) return;
 
@@ -136,45 +140,22 @@ Ready to discuss this project? Contact Imran Khan at softwarerebel.com`;
   }, []);
 
   const handleClose = useCallback(() => {
-    setIsOpen(false);
+    onClose();
     // Reset after animation completes
     setTimeout(() => {
       setProjectIdea('');
       setProposal(null);
       setError(null);
     }, 300);
-  }, []);
+  }, [onClose]);
 
-  // Floating button (closed state)
-  if (!isOpen) {
-    return (
-      <div className="fixed top-24 right-6 z-40">
-        <button
-          onClick={() => setIsOpen(true)}
-          className="relative bg-primary hover:bg-primary-glow text-primary-foreground rounded-full p-3 shadow-lg transition-all hover:scale-110 flex items-center gap-2 group overflow-hidden border border-primary/20"
-          style={{
-            boxShadow: '0 0 20px hsl(var(--primary) / 0.3)',
-            transition: 'var(--transition-smooth)'
-          }}
-          aria-label="Open project proposal generator"
-          title="Generate Project Proposal"
-        >
-          <div className="absolute inset-0 bg-primary-glow opacity-0 group-hover:opacity-20 blur-2xl transition-opacity" />
-          <Lightbulb size={20} className="relative z-10" />
-          <span className="relative z-10 font-medium text-sm hidden lg:inline">Project Ideas</span>
-        </button>
-      </div>
-    );
-  }
-
-  // Modal (open state)
+  // Modal (always rendered when component is mounted)
   return (
     <div className="fixed inset-0 bg-background/90 backdrop-blur-md z-50 flex items-center justify-center p-4">
       <div
         className="bg-card border border-border rounded-xl w-full max-w-4xl max-h-[90vh] flex flex-col shadow-2xl"
         style={{ boxShadow: '0 0 40px hsl(var(--primary) / 0.2)' }}
       >
-        {/* Header */}
         <div
           className="bg-gradient-to-r from-primary via-primary-glow to-primary text-primary-foreground p-6 rounded-t-xl flex justify-between items-center relative overflow-hidden"
           style={{ boxShadow: '0 0 30px hsl(var(--primary) / 0.4)' }}
@@ -198,7 +179,6 @@ Ready to discuss this project? Contact Imran Khan at softwarerebel.com`;
           </button>
         </div>
 
-        {/* Content */}
         <div className="flex-1 overflow-y-auto p-6">
           {!proposal ? (
             <div className="space-y-6">
@@ -225,7 +205,6 @@ Ready to discuss this project? Contact Imran Khan at softwarerebel.com`;
                 </div>
               )}
 
-              {/* Generate Button */}
               <button
                 onClick={generateProposal}
                 disabled={!canGenerate || isGenerating}
@@ -362,7 +341,6 @@ const ProposalDisplay: React.FC<{
   </div>
 );
 
-// Reusable Section component
 const Section: React.FC<{
   icon?: React.ComponentType<any>;
   title: string;
@@ -377,7 +355,6 @@ const Section: React.FC<{
   </div>
 );
 
-// Reusable InfoCard component
 const InfoCard: React.FC<{
   icon: React.ComponentType<any>;
   title: string;
