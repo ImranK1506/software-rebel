@@ -1,5 +1,6 @@
+import React from 'react';
 import { Button } from '@/components/ui/button';
-import { Github, Linkedin, Mail } from 'lucide-react';
+import { Github, Linkedin, Mail, Sparkles } from 'lucide-react';
 
 // Generate galaxy with multiple star layers
 const generateGalaxy = () => {
@@ -52,7 +53,11 @@ const generateGalaxy = () => {
 
 const galaxy = generateGalaxy();
 
-const Hero = () => {
+interface HeroProps {
+  onOpenProposalGenerator?: () => void;
+}
+
+const Hero : React.FC<HeroProps> = ({ onOpenProposalGenerator }) => {
   const scrollToContact = () => {
     const element = document.getElementById('contact');
     element?.scrollIntoView({ behavior: 'smooth' });
@@ -133,6 +138,17 @@ const Hero = () => {
             >
               View Resume
             </Button>
+            {onOpenProposalGenerator && (
+              <Button
+                onClick={onOpenProposalGenerator}
+                variant="outline"
+                size="lg"
+                className="bg-primary/50 hover:bg-primary-glow text-primary-foreground glow-on-hover px-8 py-3"
+              >
+                <Sparkles size={18} className="mr-2 group-hover:rotate-12 transition-transform" />
+                Get Project Proposal
+              </Button>
+            )}
           </div>
           
           <div className="fade-in-up flex justify-center gap-6" style={{ animationDelay: '0.6s' }}>

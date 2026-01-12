@@ -18,7 +18,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      <Hero />
+      <Hero onOpenProposalGenerator={() => setIsProposalOpen(true)} />
       <About />
       <Projects onOpenProposalGenerator={() => setIsProposalOpen(true)} />
       <Skills />
