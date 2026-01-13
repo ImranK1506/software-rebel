@@ -65,12 +65,9 @@ const Hero : React.FC<HeroProps> = ({ onOpenProposalGenerator }) => {
 
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* Animated Background */}
-      <div 
+      <div
         className="absolute inset-0 z-0 animate-pulse"
       />
-      
-      {/* Galaxy Background */}
       <div className="absolute inset-0 z-10 galaxy-container">
         {galaxy.map((star) => (
           <div
@@ -94,11 +91,8 @@ const Hero : React.FC<HeroProps> = ({ onOpenProposalGenerator }) => {
         ))}
       </div>
 
-      
-      {/* Gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/60 to-background z-30" />
       
-      {/* Content */}
       <div className="container mx-auto px-6 py-20 relative z-40 text-center">
         <div className="max-w-4xl mx-auto">
           <div className="fade-in-up">
