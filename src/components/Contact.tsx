@@ -34,11 +34,6 @@ const Contact = () => {
       label: "LinkedIn",
       href: "https://www.linkedin.com/in/imran-khan-se/"
     },
-    // {
-    //   icon: <Twitter className="w-5 h-5" />,
-    //   label: "Twitter",
-    //   href: "https://twitter.com/softwarerebel"
-    // }
   ];
 
   return (
