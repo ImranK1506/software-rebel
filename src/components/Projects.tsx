@@ -190,7 +190,6 @@ const Projects: React.FC<ProjectsProps> = ({ onOpenProposalGenerator }) => {
                     </div>
                   </div>
 
-                  {/* CTA Button */}
                   <button
                     onClick={onOpenProposalGenerator}
                     className="group relative bg-primary hover:bg-primary-glow text-primary-foreground px-8 py-4 rounded-lg text-lg font-semibold transition-all inline-flex items-center gap-3"
