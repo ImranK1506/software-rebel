@@ -46,19 +46,21 @@ const About = () => {
               </h3>
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
-                  Started as a self-taught developer with an insatiable curiosity for how things work. 
-                  Quickly discovered that the web was my canvas and code was my paintbrush.
+                  Started as a self-taught developer with an insatiable curiosity for how the web works.
+                  That curiosity turned into a 7-year journey building everything from scrappy MVPs to
+                  production platforms serving millions of users.
                 </p>
                 <p>
-                  From building scrappy prototypes to architecting complex single-page applications, 
-                  I've learned that great software isn't just about the tech stack—it's about 
-                  solving real problems for real people.
+                  Along the way, I've architected e-commerce systems handling 10M+ transactions, built
+                  design systems used across 15+ products, and created real-time dashboards processing
+                  100K+ events per second. The common thread? An obsession with solving real problems
+                  with elegant, performant solutions—not just chasing the latest tech trends.
                 </p>
                 <p>
-                  Today, I specialize in React ecosystems, modern JavaScript, and creating 
-                  performant, accessible web applications that scale. But more than that, 
-                  I'm passionate about mentoring teams and establishing best practices that 
-                  last beyond any single project.
+                  Today, I specialize in React, Vue, TypeScript, StencilJS, and Python—building
+                  applications that are fast, accessible, and built to scale. Currently accepting
+                  select freelance projects for Q2 2026. If you're building something ambitious,
+                  let's make it extraordinary together.
                 </p>
               </div>
             </div>
