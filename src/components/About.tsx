@@ -57,7 +57,7 @@ const About = () => {
                   with elegant, performant solutions—not just chasing the latest tech trends.
                 </p>
                 <p>
-                  Today, I specialize in React, Vue, TypeScript, StencilJS, and Python—building
+                  Today, I specialize in React, Vue, TypeScript, StencilJS, and Python, building
                   applications that are fast, accessible, and built to scale. Currently accepting
                   select freelance projects for Q2 2026. If you're building something ambitious,
                   let's make it extraordinary together.
