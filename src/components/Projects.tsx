@@ -33,10 +33,10 @@ const Projects: React.FC<ProjectsProps> = ({ onOpenProposalGenerator }) => {
       featured: false
     },
     {
-      title: "Mobile-First PWA",
-      description: "Developed a progressive web app with offline capabilities, push notifications, and native-like performance across all devices.",
-      tech: ["React", "PWA", "Service Workers", "IndexedDB", "Workbox"],
-      impact: "Achieved 90+ Lighthouse scores across all metrics",
+      title: "Filmpire - Movie Discovery App",
+      description: "Developed a full-stack movie discovery application using React for the frontend and Node.js for the backend. Integrated with third-party APIs for movie data.",
+      tech: ["React", "Node.js", "Express", "MongoDB", "TMDb API"],
+      impact: "The app was created as an example of what I can build. It showcases my skills in building full-stack applications.",
       featured: false
     }
   ];
