@@ -37,7 +37,10 @@ const Projects: React.FC<ProjectsProps> = ({ onOpenProposalGenerator }) => {
       description: "Developed a full-stack movie discovery application using React for the frontend and Node.js for the backend. Integrated with third-party APIs for movie data.",
       tech: ["React", "Node.js", "Express", "MongoDB", "TMDb API"],
       impact: "The app was created as an example of what I can build. It showcases my skills in building full-stack applications.",
-      featured: false
+      featured: true,
+      liveUrl: "https://filmpire-tmdb-react.netlify.app",
+      repoUrl: "https://github.com/ImranK1506/react-filmpire?tab=readme-ov-file",
+      previewUrl: "https://filmpire-tmdb-react.netlify.app"
     }
   ];
 
@@ -94,27 +97,46 @@ const Projects: React.FC<ProjectsProps> = ({ onOpenProposalGenerator }) => {
                       </span>
                     ))}
                   </div>
-                  
+
                   <div className="flex gap-4">
-                    <Button 
-                      variant="outline" 
-                      size="sm"
-                      className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
-                    >
-                      <ExternalLink className="w-4 h-4 mr-2" />
-                      Live Demo
-                    </Button>
-                    <Button 
-                      variant="ghost" 
-                      size="sm"
-                      className="text-muted-foreground hover:text-primary"
-                    >
-                      <Github className="w-4 h-4 mr-2" />
-                      Code
-                    </Button>
+                    {project.liveUrl && (
+                      <Button
+                        asChild
+                        variant="outline"
+                        size="sm"
+                        className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+                      >
+                        <a
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <ExternalLink className="w-4 h-4 mr-2" />
+                          Live Demo
+                        </a>
+                      </Button>
+                    )}
+
+                    {project.repoUrl && (
+                      <Button
+                        asChild
+                        variant="ghost"
+                        size="sm"
+                        className="text-muted-foreground hover:text-primary"
+                      >
+                        <a
+                          href={project.repoUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <Github className="w-4 h-4 mr-2" />
+                          Code
+                        </a>
+                      </Button>
+                    )}
                   </div>
                 </div>
-                
+
                 {project.featured && (
                   <div className="mt-6 md:mt-0">
                     <div className="bg-gradient-to-br from-primary/5 to-primary-glow/5 rounded-lg p-6 border border-primary/20 h-full flex items-center justify-center">
