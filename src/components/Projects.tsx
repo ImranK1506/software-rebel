@@ -40,7 +40,6 @@ const Projects: React.FC<ProjectsProps> = ({ onOpenProposalGenerator }) => {
       featured: true,
       liveUrl: "https://filmpire-tmdb-react.netlify.app",
       repoUrl: "https://github.com/ImranK1506/react-filmpire?tab=readme-ov-file",
-      previewUrl: "https://filmpire-tmdb-react.netlify.app"
     }
   ];
 
