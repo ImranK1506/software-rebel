@@ -118,7 +118,7 @@ const Skills = () => {
               </h3>
               <p className="text-muted-foreground max-w-2xl mx-auto">
                 The web moves fast, and so do I. Currently exploring AI agents, 
-                advanced Vue patterns, and the latest in web performance optimization. 
+                advanced Vue patterns, the latest in web performance optimization and more advanced Python methods.
                 The rebellion never stops evolving.
               </p>
             </div>
