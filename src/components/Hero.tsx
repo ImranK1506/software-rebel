@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { Github, Linkedin, Mail, Sparkles } from 'lucide-react';
+import { Github, Linkedin, Mail, Sparkles, ArrowRight } from 'lucide-react';
 
 // Generate galaxy with multiple star layers
 const generateGalaxy = () => {
@@ -117,32 +117,15 @@ const Hero : React.FC<HeroProps> = ({ onOpenProposalGenerator }) => {
           </div>
           
           <div className="fade-in-up flex flex-col sm:flex-row gap-4 justify-center items-center mb-12" style={{ animationDelay: '0.4s' }}>
-            <Button 
-              onClick={scrollToContact}
-              size="lg"
-              className="bg-primary hover:bg-primary-glow text-primary-foreground glow-on-hover px-8 py-3"
+            <button
+              onClick={() => document.getElementById('projects').scrollIntoView({ behavior: 'smooth' })}
+              className="group relative bg-gradient-to-r from-cyan-500 to-blue-500 text-black px-10 py-5 rounded-full text-lg font-bold hover:shadow-2xl transition-all inline-flex items-center gap-3"
+              style={{ boxShadow: '0 0 40px rgba(6, 182, 212, 0.4)' }}
             >
-              Start a Project
-            </Button>
-            <Button 
-              variant="outline" 
-              size="lg"
-              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 py-3"
-              onClick={() => window.open('/resume.pdf', '_blank')}
-            >
-              View Resume
-            </Button>
-            {onOpenProposalGenerator && (
-              <Button
-                onClick={onOpenProposalGenerator}
-                variant="outline"
-                size="lg"
-                className="bg-primary/50 hover:bg-primary-glow text-primary-foreground glow-on-hover px-8 py-3"
-              >
-                <Sparkles size={18} className="mr-2 group-hover:rotate-12 transition-transform" />
-                Get Project Proposal
-              </Button>
-            )}
+              <span className="relative z-10">View Work</span>
+              <ArrowRight size={20} className="relative z-10 group-hover:translate-x-1 transition-transform" />
+              <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-400 rounded-full blur-xl opacity-50 group-hover:opacity-70 transition-opacity" />
+            </button>
           </div>
           
           <div className="fade-in-up flex justify-center gap-6" style={{ animationDelay: '0.6s' }}>
