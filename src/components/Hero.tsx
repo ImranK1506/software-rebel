@@ -96,23 +96,18 @@ const Hero : React.FC<HeroProps> = ({ onOpenProposalGenerator }) => {
       <div className="container mx-auto px-6 py-20 relative z-40 text-center">
         <div className="max-w-4xl mx-auto">
           <div className="fade-in-up">
-            <p className="text-primary font-mono text-lg mb-4">
-              Hello, I'm
-            </p>
-            <h1 className="text-hero text-gradient mb-6 leading-tight">
-              Imran Khan
+            <h1 className="text-8xl md:text-9xl font-black mb-8 tracking-tighter leading-none relative">
+              <span className="bg-gradient-to-r from-white via-cyan-200 to-purple-200 bg-clip-text text-transparent">
+                Imran Khan
+              </span>
+              <div className="absolute inset-0 blur-3xl opacity-30 bg-gradient-to-r from-cyan-500 to-purple-500" />
             </h1>
-            <h2 className="text-2xl md:text-3xl font-light text-muted-foreground mb-8 leading-relaxed">
-              Front-End Engineer crafting rebellious digital experiences
-              <br />
-              <span className="text-primary">7+ years</span> of breaking conventions and building the future
-            </h2>
-          </div>
-          
-          <div className="fade-in-up" style={{ animationDelay: '0.2s' }}>
-            <p className="text-lg text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed">
-              Specializing in large-scale web platforms, user-centric design, and cutting-edge technologies. 
-              I turn complex problems into elegant, performant solutions that users love.
+            <p className="text-2xl md:text-3xl text-gray-300 mb-4 font-light">
+              Front-End Engineer
+            </p>
+
+            <p className="text-xl md:text-2xl text-gray-400 mb-12 font-light">
+              Breaking conventions, building the future
             </p>
           </div>
           
