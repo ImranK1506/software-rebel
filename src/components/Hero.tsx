@@ -53,11 +53,7 @@ const generateGalaxy = () => {
 
 const galaxy = generateGalaxy();
 
-interface HeroProps {
-  onOpenProposalGenerator?: () => void;
-}
-
-const Hero : React.FC<HeroProps> = ({ onOpenProposalGenerator }) => {
+const Hero : React.FC = () => {
   const scrollToContact = () => {
     const element = document.getElementById('contact');
     element?.scrollIntoView({ behavior: 'smooth' });
