@@ -54,10 +54,6 @@ const generateGalaxy = () => {
 const galaxy = generateGalaxy();
 
 const Hero : React.FC = () => {
-  const scrollToContact = () => {
-    const element = document.getElementById('contact');
-    element?.scrollIntoView({ behavior: 'smooth' });
-  };
 
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
