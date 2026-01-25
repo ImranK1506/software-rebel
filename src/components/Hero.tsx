@@ -1,6 +1,5 @@
 import React from 'react';
-import { Button } from '@/components/ui/button';
-import { Github, Linkedin, Mail, Sparkles, ArrowRight } from 'lucide-react';
+import { Github, Linkedin, Mail, ArrowRight } from 'lucide-react';
 
 // Generate galaxy with multiple star layers
 const generateGalaxy = () => {
