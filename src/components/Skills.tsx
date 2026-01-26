@@ -21,7 +21,7 @@ const Skills = () => {
       skills: [
         { name: "Git / GitHub", level: "Expert", years: "7+" },
         { name: "Webpack / Vite", level: "Advanced", years: "4+" },
-        { name: "Jest / Testing Library", level: "Advanced", years: "3+" },
+        { name: "Jest / Testing Library", level: "Advanced", years: "5+" },
         { name: "Storybook", level: "Advanced", years: "2+" },
         { name: "Docker", level: "Intermediate", years: "2+" },
         { name: "CI/CD Pipelines", level: "Advanced", years: "3+" }
@@ -36,7 +36,7 @@ const Skills = () => {
         { name: "Performance Optimization", level: "Expert", years: "5+" },
         { name: "Web Accessibility", level: "Advanced", years: "4+" },
         { name: "Progressive Web Apps", level: "Advanced", years: "3+" },
-        { name: "Design Systems", level: "Expert", years: "4+" }
+        { name: "Design Systems", level: "Advanced", years: "3+" }
       ]
     },
     {
