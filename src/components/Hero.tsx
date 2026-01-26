@@ -147,7 +147,6 @@ const Hero : React.FC = () => {
           <div className="w-1 h-3 bg-primary rounded-full mt-2 animate-bounce"></div>
         </div>
       </div>
-      
     </section>
   );
 };
