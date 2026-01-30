@@ -35,7 +35,7 @@ const Skills = () => {
         { name: "State Management", level: "Expert", years: "5+" },
         { name: "Performance Optimization", level: "Expert", years: "5+" },
         { name: "Web Accessibility", level: "Advanced", years: "4+" },
-        { name: "Progressive Web Apps", level: "Advanced", years: "3+" },
+        { name: "Progressive Web Apps", level: "Advanced", years: "4+" },
         { name: "Design Systems", level: "Advanced", years: "3+" }
       ]
     },
