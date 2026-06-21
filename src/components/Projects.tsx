@@ -8,8 +8,6 @@ interface ProjectsProps {
 }
 
 const Projects: React.FC<ProjectsProps> = ({ onOpenProposalGenerator }) => {
-  console.log('Projects rendered, prop exists:', !!onOpenProposalGenerator);
-
   const projects = [
     {
       title: "E-Commerce Platform",
@@ -135,95 +133,9 @@ const Projects: React.FC<ProjectsProps> = ({ onOpenProposalGenerator }) => {
                     )}
                   </div>
                 </div>
-
-                {project.featured && (
-                  <div className="mt-6 md:mt-0">
-                    <div className="bg-gradient-to-br from-primary/5 to-primary-glow/5 rounded-lg p-6 border border-primary/20 h-full flex items-center justify-center">
-                      <div className="text-center">
-                        <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                          <ExternalLink className="w-8 h-8 text-primary" />
-                        </div>
-                        <p className="text-sm text-muted-foreground">
-                          Interactive preview available
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                )}
               </Card>
             ))}
           </div>
-          
-          <div className="text-center mt-12">
-            <Button 
-              variant="outline"
-              size="lg"
-              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
-            >
-              View All Projects!
-            </Button>
-          </div>
-          {/*Proposal Generator CTA*/}
-          {onOpenProposalGenerator && (
-            <div className="mt-20">
-              <div
-                className="relative overflow-hidden rounded-xl p-8 md:p-12 text-center"
-                style={{
-                  background: 'linear-gradient(135deg, hsl(var(--primary) / 0.1), hsl(var(--primary-glow) / 0.05))',
-                  border: '1px solid hsl(var(--primary) / 0.3)',
-                  boxShadow: '0 0 40px hsl(var(--primary) / 0.15)'
-                }}
-              >
-                {/* Animated background glow */}
-                <div
-                  className="absolute inset-0 opacity-30 blur-3xl"
-                  style={{
-                    background: 'radial-gradient(circle at 50% 50%, hsl(var(--primary-glow)), transparent 70%)'
-                  }}
-                />
-
-                <div className="relative z-10">
-                  <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/20 border border-primary/30 mb-6">
-                    <Lightbulb size={32} className="text-primary" />
-                  </div>
-
-                  <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-4 font-inter">
-                    Don't See What You Need?
-                  </h3>
-
-                  <p className="text-muted-foreground text-lg mb-8 max-w-2xl mx-auto leading-relaxed">
-                    Have a unique project in mind? Share your vision and receive a detailed technical proposal
-                    tailored to your specific needs—completely free, no strings attached.
-                  </p>
-
-                  <div className="grid md:grid-cols-3 gap-4 mb-8 text-sm max-w-3xl mx-auto">
-                    <div className="bg-background/50 backdrop-blur-sm rounded-lg p-4 border border-border">
-                      <div className="text-primary font-bold mb-1">⚡ Instant</div>
-                      <div className="text-muted-foreground">Generated in seconds</div>
-                    </div>
-                    <div className="bg-background/50 backdrop-blur-sm rounded-lg p-4 border border-border">
-                      <div className="text-primary font-bold mb-1">🎯 Detailed</div>
-                      <div className="text-muted-foreground">Tech stack & timeline</div>
-                    </div>
-                    <div className="bg-background/50 backdrop-blur-sm rounded-lg p-4 border border-border">
-                      <div className="text-primary font-bold mb-1">💰 Free</div>
-                      <div className="text-muted-foreground">No commitment needed</div>
-                    </div>
-                  </div>
-
-                  <button
-                    onClick={onOpenProposalGenerator}
-                    className="group relative bg-primary hover:bg-primary-glow text-primary-foreground px-8 py-4 rounded-lg text-lg font-semibold transition-all inline-flex items-center gap-3"
-                  >
-                    <Lightbulb size={24} />
-                    <span>Generate Custom Proposal</span>
-                    <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-                  </button>
-                </div>
-              </div>
-            </div>
-          )}
-
         </div>
       </div>
     </section>
