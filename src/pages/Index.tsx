@@ -10,14 +10,14 @@ import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 
 const Index = () => {
-  const [isProposalOpen, setIsProposalOpen] = useState(false);
+  const [setIsProposalOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-background">
       <Header />
       <Hero />
       <About />
-      <Projects onOpenProposalGenerator={() => setIsProposalOpen(true)} />
+      <Projects />
       <Skills />
       <Contact />
       <Footer />

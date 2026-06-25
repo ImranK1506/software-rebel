@@ -1,13 +1,9 @@
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { ExternalLink, Github, Lightbulb, ArrowRight } from 'lucide-react';
+import { ExternalLink, Github } from 'lucide-react';
 import React from 'react';
 
-interface ProjectsProps {
-  onOpenProposalGenerator?: () => void;
-}
-
-const Projects: React.FC<ProjectsProps> = ({ onOpenProposalGenerator }) => {
+const Projects: React.FC = () => {
   const projects = [
     {
       title: "E-Commerce Platform",
