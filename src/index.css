@@ -1,74 +1,79 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Oswald:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* SoftwareRebel Portfolio Design System */
+/* SoftwareRebel Portfolio Design System — "Rebel Dossier" theme
+   Foundation layer only: token values + fonts. Same token NAMES as before,
+   so every component that reads bg-background / text-primary / etc. reskins
+   automatically. Section-level porting (saber dividers, holo cards, crawl)
+   comes after this commit. */
 
 @layer base {
   :root {
-    /* Dark-first color palette */
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
-    
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
-    
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    
-    /* Electric blue accent system */
-    --primary: 196 100% 47%;
-    --primary-foreground: 240 10% 3.9%;
-    --primary-glow: 196 100% 60%;
-    
-    --secondary: 240 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
-    
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
-    
-    --accent: 196 100% 47%;
-    --accent-foreground: 240 10% 3.9%;
-    
+    /* Deep-space base */
+    --background: 228 33% 4%;        /* void black */
+    --foreground: 220 30% 94%;       /* off-white */
+
+    --card: 225 30% 7%;              /* lifted panel */
+    --card-foreground: 220 30% 94%;
+
+    --popover: 225 30% 7%;
+    --popover-foreground: 220 30% 94%;
+
+    /* Hologram blue = primary interaction color */
+    --primary: 197 100% 68%;
+    --primary-foreground: 228 33% 6%;
+    --primary-glow: 197 100% 78%;
+
+    --secondary: 225 25% 11%;
+    --secondary-foreground: 220 30% 94%;
+
+    --muted: 225 25% 11%;
+    --muted-foreground: 222 14% 62%; /* steel */
+
+    --accent: 197 100% 68%;
+    --accent-foreground: 228 33% 6%;
+
+    /* Title-crawl gold + rebel-red spark (new brand tokens) */
+    --gold: 54 100% 56%;
+    --gold-foreground: 228 33% 6%;
+    --rebel: 9 100% 62%;
+
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 196 100% 47%;
-    
-    --radius: 0.75rem;
-    
+
+    --border: 223 22% 15%;           /* hairline */
+    --input: 223 22% 15%;
+    --ring: 197 100% 68%;
+
+    --radius: 0.25rem;               /* sharper, tech-panel corners (was 0.75rem) */
+
     /* Gradient system */
     --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
-    --gradient-dark: linear-gradient(135deg, hsl(240 10% 3.9%), hsl(240 3.7% 15.9%));
+    --gradient-gold: linear-gradient(135deg, hsl(var(--gold)), hsl(48 100% 66%));
+    --gradient-dark: linear-gradient(135deg, hsl(228 33% 4%), hsl(225 25% 11%));
     --gradient-accent: linear-gradient(135deg, hsl(var(--primary) / 0.1), hsl(var(--primary) / 0.05));
-    
-    /* Glow effects */
+
+    /* Glow effects (auto-follow primary -> now hologram blue) */
     --glow-primary: 0 0 20px hsl(var(--primary) / 0.3);
     --glow-intense: 0 0 40px hsl(var(--primary) / 0.6);
-    
+    --glow-gold: 0 0 22px hsl(var(--gold) / 0.35);
+
     /* Animations */
     --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Sidebar (unused by the portfolio, kept for shadcn compatibility) */
+    --sidebar-background: 225 30% 7%;
+    --sidebar-foreground: 222 14% 62%;
+    --sidebar-primary: 197 100% 68%;
+    --sidebar-primary-foreground: 228 33% 6%;
+    --sidebar-accent: 225 25% 11%;
+    --sidebar-accent-foreground: 220 30% 94%;
+    --sidebar-border: 223 22% 15%;
+    --sidebar-ring: 197 100% 68%;
   }
 }
 
@@ -81,59 +86,65 @@
     @apply bg-background text-foreground font-inter antialiased;
     overflow-x: hidden;
   }
-  
+
   html {
     scroll-behavior: smooth;
   }
 }
 
 @layer components {
-  /* Typography classes */
+  /* Typography — headings now use the cinematic display face (Oswald) */
   .text-gradient {
     @apply bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent;
   }
-  
+
+  .text-gradient-gold {
+    @apply bg-gradient-to-r from-gold to-primary-glow bg-clip-text text-transparent;
+  }
+
   .text-hero {
-    @apply text-5xl md:text-7xl font-black tracking-tight;
+    @apply font-display uppercase tracking-tight text-5xl md:text-7xl;
+    font-weight: 700;
   }
-  
+
   .text-section {
-    @apply text-3xl md:text-4xl font-bold;
+    @apply font-display uppercase tracking-wide text-3xl md:text-4xl;
+    font-weight: 600;
   }
-  
+
   /* Interactive elements */
   .glow-on-hover {
     transition: var(--transition-smooth);
   }
-  
+
   .glow-on-hover:hover {
     box-shadow: var(--glow-primary);
     transform: translateY(-2px);
   }
-  
+
   .rebel-card {
-    @apply bg-gradient-to-br from-card to-secondary border border-border rounded-xl p-6;
+    @apply bg-gradient-to-br from-card to-secondary border border-border rounded-lg p-6;
     @apply backdrop-blur-sm;
     transition: var(--transition-smooth);
   }
-  
+
   .rebel-card:hover {
     @apply border-primary/50;
     box-shadow: var(--glow-primary);
     transform: translateY(-4px);
   }
-  
+
   /* Animations */
   .fade-in-up {
     @apply opacity-0 translate-y-10;
     animation: fadeInUp 0.6s ease-out forwards;
   }
-  
+
   .fade-in-left {
     @apply opacity-0 -translate-x-10;
     animation: fadeInLeft 0.6s ease-out forwards;
   }
-  
+
   .fade-in-right {
     @apply opacity-0 translate-x-10;
     animation: fadeInRight 0.6s ease-out forwards;
@@ -159,10 +170,23 @@
 }
 
 @keyframes glow {
-  0%, 100% { 
+  0%, 100% {
     box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
   }
-  50% { 
+  50% {
     box-shadow: 0 0 40px hsl(var(--primary) / 0.6);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .fade-in-up, .fade-in-left, .fade-in-right {
+    opacity: 1 !important;
+    transform: none !important;
   }
 }

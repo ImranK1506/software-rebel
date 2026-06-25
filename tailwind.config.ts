@@ -19,6 +19,7 @@ export default {
 		},
 		extend: {
 			fontFamily: {
+				'display': ['Oswald', 'sans-serif'],
 				'inter': ['Inter', 'sans-serif'],
 				'mono': ['JetBrains Mono', 'monospace'],
 			},
@@ -49,6 +50,11 @@ export default {
 					DEFAULT: 'hsl(var(--accent))',
 					foreground: 'hsl(var(--accent-foreground))'
 				},
+				gold: {
+					DEFAULT: 'hsl(var(--gold))',
+					foreground: 'hsl(var(--gold-foreground))'
+				},
+				rebel: 'hsl(var(--rebel))',
 				popover: {
 					DEFAULT: 'hsl(var(--popover))',
 					foreground: 'hsl(var(--popover-foreground))'
