@@ -1,6 +1,3 @@
-import React from 'react';
-import { useState } from 'react';
-
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import About from '@/components/About';
@@ -10,8 +7,6 @@ import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 
 const Index = () => {
-  const [setIsProposalOpen] = useState(false);
-
   return (
     <div className="min-h-screen bg-background">
       <Header />
