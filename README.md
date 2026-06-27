@@ -1,6 +1,6 @@
 # Software Rebel - Front-End Engineer
 
-A modern, responsive portfolio website showcasing the work and expertise of a rebellious front-end engineer with 7+ years of experience in building large-scale, user-friendly web platforms.
+A modern, responsive portfolio website showcasing the work and expertise of a rebellious front-end engineer with 8+ years of experience in building large-scale, user-friendly web platforms.
 
 ## 🚀 Features
 
