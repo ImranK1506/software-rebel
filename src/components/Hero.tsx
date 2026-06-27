@@ -112,8 +112,6 @@ const Hero: React.FC = () => {
             </span>
           </div>
 
-          {/* Name — gold stroke on the surname. Scales down on small screens so it
-              doesn't crowd the left edge. */}
           <div className="fade-in-up">
             <h1 className="font-display uppercase font-bold tracking-tight leading-[0.86] text-6xl sm:text-7xl md:text-9xl mb-6 sm:mb-8">
               <span className="block text-foreground">Imran</span>
