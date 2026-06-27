@@ -8,7 +8,7 @@ interface Star {
   a: number;
   tw: number;
   ph: number;
-  color: string;
+  color: string; // RGB triplet string for canvas fillStyle
 }
 
 const Hero: React.FC = () => {
@@ -42,8 +42,8 @@ const Hero: React.FC = () => {
         a: Math.random() * 0.6 + 0.2,
         tw: Math.random() * 0.02 + 0.004,
         ph: Math.random() * Math.PI * 2,
-        // ~8% of stars get the cyan accent, the rest are white.
-        color: Math.random() > 0.92 ? '6, 182, 212' : '255, 255, 255',
+        // ~8% of stars get the hologram-blue accent (mirrors --primary 197 100% 68%), rest white.
+        color: Math.random() > 0.92 ? '92, 209, 255' : '255, 255, 255',
       }));
     };
 
@@ -88,8 +88,8 @@ const Hero: React.FC = () => {
   }, []);
 
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* Canvas starfield (replaces ~330 animated DOM nodes) */}
+    <section className="min-h-screen flex items-center relative overflow-hidden">
+      {/* Canvas starfield */}
       <canvas
         ref={canvasRef}
         aria-hidden="true"
@@ -99,63 +99,87 @@ const Hero: React.FC = () => {
       {/* Depth gradient over the stars */}
       <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/60 to-background z-10" />
 
-      <div className="container mx-auto px-6 py-20 relative z-20 text-center">
-        <div className="max-w-4xl mx-auto">
+      <div className="container mx-auto px-6 py-20 relative z-20">
+        <div className="max-w-3xl">
+          {/* Status row — items wrap as whole pills, never mid-pill */}
+          <div className="fade-in-up flex flex-wrap items-center gap-x-4 gap-y-2 mb-8">
+            <span className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.12em] text-foreground border border-border rounded-full px-3 py-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-green-400 shadow-[0_0_8px_#4ade80] animate-pulse" />
+              Open · Freelance Q2 2026
+            </span>
+            <span className="font-mono text-xs uppercase tracking-[0.32em] text-primary">
+              Amsterdam · NL
+            </span>
+          </div>
+
+          {/* Name — gold stroke on the surname. Scales down on small screens so it
+              doesn't crowd the left edge. */}
           <div className="fade-in-up">
-            <h1 className="text-8xl md:text-9xl font-black mb-8 tracking-tighter leading-none relative">
-              <span className="bg-gradient-to-r from-white via-cyan-200 to-purple-200 bg-clip-text text-transparent">
-                Imran Khan
+            <h1 className="font-display uppercase font-bold tracking-tight leading-[0.86] text-6xl sm:text-7xl md:text-9xl mb-6 sm:mb-8">
+              <span className="block text-foreground">Imran</span>
+              <span
+                className="block text-transparent"
+                style={{ WebkitTextStroke: '1.5px hsl(var(--gold))' }}
+              >
+                Khan
               </span>
-              <div className="absolute inset-0 blur-3xl opacity-30 bg-gradient-to-r from-cyan-500 to-purple-500" />
             </h1>
-            <p className="text-2xl md:text-3xl text-gray-300 mb-4 font-light">
+            <p className="font-mono text-sm md:text-base uppercase tracking-[0.18em] text-primary mb-4">
               Front-End Engineer
             </p>
-            <p className="text-xl md:text-2xl text-gray-400 mb-12 font-light">
-              Breaking conventions, building the future
+            <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-10 sm:mb-12 font-light max-w-2xl">
+              <span className="text-foreground font-medium">Breaking conventions, building the future.</span>{' '}
+              React, TypeScript &amp; StencilJS — built to scale.
             </p>
           </div>
 
+          {/* Lightsaber CTAs */}
           <div
-            className="fade-in-up flex flex-col sm:flex-row gap-4 justify-center items-center mb-12"
+            className="fade-in-up flex flex-col sm:flex-row gap-4 items-start sm:items-center mb-12"
             style={{ animationDelay: '0.4s' }}
           >
             <button
               onClick={scrollToProjects}
-              className="group relative bg-gradient-to-r from-cyan-500 to-blue-500 text-black px-10 py-5 rounded-full text-lg font-bold hover:shadow-2xl transition-all inline-flex items-center gap-3"
-              style={{ boxShadow: '0 0 40px rgba(6, 182, 212, 0.4)' }}
+              className="group glow-on-hover bg-primary text-primary-foreground font-mono uppercase text-sm font-semibold tracking-wider px-7 py-4 rounded-md inline-flex items-center gap-3"
+              style={{ boxShadow: '0 0 22px hsl(var(--primary) / 0.35)' }}
             >
-              <span className="relative z-10">View Work</span>
-              <ArrowRight size={20} className="relative z-10 group-hover:translate-x-1 transition-transform" />
-              <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-400 rounded-full blur-xl opacity-50 group-hover:opacity-70 transition-opacity" />
+              View Missions
+              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </button>
+            <a
+              href="#contact"
+              className="font-mono uppercase text-sm font-semibold tracking-wider px-7 py-4 rounded-md border border-border text-foreground hover:border-primary hover:text-primary transition-colors"
+            >
+              Open Comms
+            </a>
           </div>
 
-          <div className="fade-in-up flex justify-center gap-6" style={{ animationDelay: '0.6s' }}>
+          {/* Socials */}
+          <div className="fade-in-up flex gap-3" style={{ animationDelay: '0.6s' }}>
             <a
               href="https://github.com/ImranK1506"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub"
-              className="text-muted-foreground hover:text-primary transition-colors glow-on-hover p-2 rounded-lg"
+              className="grid place-items-center w-11 h-11 border border-border rounded-md text-muted-foreground hover:text-primary hover:border-primary transition-colors"
             >
-              <Github size={24} />
+              <Github size={20} />
             </a>
             <a
               href="https://www.linkedin.com/in/imran-khan-se/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
-              className="text-muted-foreground hover:text-primary transition-colors glow-on-hover p-2 rounded-lg"
+              className="grid place-items-center w-11 h-11 border border-border rounded-md text-muted-foreground hover:text-primary hover:border-primary transition-colors"
             >
-              <Linkedin size={24} />
+              <Linkedin size={20} />
             </a>
             <a
               href="mailto:imran@softwarerebel.com"
               aria-label="Email"
-              className="text-muted-foreground hover:text-primary transition-colors glow-on-hover p-2 rounded-lg"
+              className="grid place-items-center w-11 h-11 border border-border rounded-md text-muted-foreground hover:text-primary hover:border-primary transition-colors"
             >
-              <Mail size={24} />
+              <Mail size={20} />
             </a>
           </div>
         </div>

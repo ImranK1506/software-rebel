@@ -5,6 +5,7 @@ import Projects from '@/components/Projects';
 import Skills from '@/components/Skills';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
+import SaberDivider from '@/components/SaberDivider.tsx';
 
 const Index = () => {
   return (
@@ -13,7 +14,9 @@ const Index = () => {
       <Hero />
       <About />
       <Projects />
+      <SaberDivider color ="gold" />
       <Skills />
+      <SaberDivider />
       <Contact />
       <Footer />
     </div>
