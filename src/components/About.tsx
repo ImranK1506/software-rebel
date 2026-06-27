@@ -48,7 +48,7 @@ const About: React.FC = () => {
             <div className="fade-in-left space-y-5 leading-relaxed text-muted-foreground">
               <p>
                 Started as a self-taught developer with an insatiable curiosity for how the web works.
-                That curiosity turned into a 7-year journey building everything from scrappy MVPs to
+                That curiosity turned into a 8-year journey building everything from scrappy MVPs to
                 production platforms serving millions of users.
               </p>
               <p>
