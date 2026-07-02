@@ -5,16 +5,18 @@ import Projects from '@/components/Projects';
 import Skills from '@/components/Skills';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
-import SaberDivider from '@/components/SaberDivider.tsx';
+import SaberDivider from '@/components/SaberDivider';
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
       <Hero />
+      <SaberDivider />
       <About />
+      <SaberDivider />
       <Projects />
-      <SaberDivider color ="gold" />
+      <SaberDivider color="gold" />
       <Skills />
       <SaberDivider />
       <Contact />

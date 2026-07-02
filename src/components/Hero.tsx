@@ -47,7 +47,10 @@ const Hero: React.FC = () => {
       }));
     };
 
-    const resize = () => {
+    let lastW = 0;
+    let resizeTimer = 0;
+
+    const applySize = () => {
       const parent = canvas.parentElement;
       const w = parent?.clientWidth ?? window.innerWidth;
       const h = parent?.clientHeight ?? window.innerHeight;
@@ -57,7 +60,18 @@ const Hero: React.FC = () => {
       canvas.height = height;
       canvas.style.width = `${w}px`;
       canvas.style.height = `${h}px`;
-      seedStars();
+      // Only regenerate stars when the width actually changes — mobile URL-bar
+      // show/hide fires height-only resizes constantly and shouldn't reshuffle the sky.
+      if (w !== lastW) {
+        lastW = w;
+        seedStars();
+      }
+      if (prefersReduced) draw(0); // repaint the static frame at the new size
+    };
+
+    const resize = () => {
+      window.clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(applySize, 150);
     };
 
     const draw = (t: number) => {
@@ -72,7 +86,7 @@ const Hero: React.FC = () => {
       if (!prefersReduced) frameId = requestAnimationFrame(draw);
     };
 
-    resize();
+    applySize();
     window.addEventListener('resize', resize);
 
     if (prefersReduced) {
@@ -83,6 +97,7 @@ const Hero: React.FC = () => {
 
     return () => {
       window.removeEventListener('resize', resize);
+      window.clearTimeout(resizeTimer);
       cancelAnimationFrame(frameId);
     };
   }, []);
@@ -112,6 +127,8 @@ const Hero: React.FC = () => {
             </span>
           </div>
 
+          {/* Name — gold stroke on the surname. Scales down on small screens so it
+              doesn't crowd the left edge. */}
           <div className="fade-in-up">
             <h1 className="font-display uppercase font-bold tracking-tight leading-[0.86] text-6xl sm:text-7xl md:text-9xl mb-6 sm:mb-8">
               <span className="block text-foreground">Imran</span>

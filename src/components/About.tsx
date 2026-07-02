@@ -1,4 +1,6 @@
 import React from 'react';
+import { useReveal } from '@/hooks/useReveal';
+import { cn } from '@/lib/utils';
 
 interface Trait {
   title: string;
@@ -25,6 +27,8 @@ const traits: Trait[] = [
 ];
 
 const About: React.FC = () => {
+  const { ref, revealed } = useReveal<HTMLDivElement>();
+
   return (
     <section id="about" className="py-28">
       <div className="container mx-auto px-6">
@@ -43,12 +47,18 @@ const About: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid items-start gap-12 md:grid-cols-[1.2fr_0.8fr]">
+          <div ref={ref} className="grid items-start gap-12 md:grid-cols-[1.2fr_0.8fr]">
             {/* Journey + creed */}
-            <div className="fade-in-left space-y-5 leading-relaxed text-muted-foreground">
+            <div
+              className={cn(
+                'space-y-5 leading-relaxed text-muted-foreground',
+                'transition-all duration-700 ease-out motion-reduce:transition-none',
+                revealed ? 'translate-x-0 opacity-100' : '-translate-x-6 opacity-0'
+              )}
+            >
               <p>
                 Started as a self-taught developer with an insatiable curiosity for how the web works.
-                That curiosity turned into a 8-year journey building everything from scrappy MVPs to
+                That curiosity turned into an 8-year journey building everything from scrappy MVPs to
                 production platforms serving millions of users.
               </p>
               <p>
@@ -82,7 +92,12 @@ const About: React.FC = () => {
             </div>
 
             {/* Numbered trait dossier cards */}
-            <div className="fade-in-right grid gap-3.5">
+            <div
+              className={cn(
+                'grid gap-3.5 transition-all duration-700 ease-out delay-150 motion-reduce:transition-none',
+                revealed ? 'translate-x-0 opacity-100' : 'translate-x-6 opacity-0'
+              )}
+            >
               {traits.map((trait, i) => (
                 <div
                   key={trait.title}
