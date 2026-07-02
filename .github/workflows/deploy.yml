@@ -16,8 +16,7 @@ concurrency:
 
 env:
   NODE_VERSION: 22
-  # Set this if/when you use a custom domain (e.g., softwarerebel.com)
-  CUSTOM_DOMAIN: ""
+  CUSTOM_DOMAIN: "softwarerebel.com"
 
 jobs:
   build:
