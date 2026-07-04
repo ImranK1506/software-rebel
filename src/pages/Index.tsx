@@ -6,10 +6,12 @@ import Skills from '@/components/Skills';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import SaberDivider from '@/components/SaberDivider';
+import OpeningCrawl from '@/components/OpeningCrawl';
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
+      <OpeningCrawl />
       <Header />
       <Hero />
       <SaberDivider />
