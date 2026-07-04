@@ -1,31 +1,33 @@
 const Footer = () => {
   return (
-    <footer className="bg-background border-t border-border py-12">
+    <footer className="border-t border-border py-12">
       <div className="container mx-auto px-6">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="mb-4 md:mb-0">
-              <div className="text-xl font-bold text-gradient font-mono mb-2">
-                &lt;softwarerebel /&gt;
+        <div className="mx-auto max-w-5xl">
+          <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
+            <div>
+              <div className="mb-2 font-mono text-base font-semibold text-foreground">
+                &lt;<span className="text-gold">softwarerebel</span> /&gt;
               </div>
-              <p className="text-muted-foreground text-sm">
+              <p className="font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground">
                 Breaking conventions, building the future
               </p>
             </div>
-            
-            <div className="text-center md:text-right">
-              <p className="text-muted-foreground text-sm mb-1">
-                © {new Date().getFullYear()} Software Rebel. All rights reserved.
+
+            <div className="md:text-right">
+              <p className="mb-1 text-sm text-muted-foreground">
+                © {new Date().getFullYear()} Software Rebel · Amsterdam, NL
               </p>
-              <p className="text-xs text-muted-foreground font-mono">
-                Crafted with React, TypeScript & rebellious spirit
+              <p className="font-mono text-xs text-muted-foreground">
+                Crafted with React, TypeScript &amp; a{' '}
+                <span className="text-gold">rebellious spirit</span>
               </p>
             </div>
           </div>
-          <div className="border-t border-border mt-8 pt-8 text-center">
-            <p className="text-xs text-muted-foreground font-mono">
-              // This portfolio was built to showcase what's possible when you dare to be different
-           </p>
+
+          <div className="mt-8 border-t border-border pt-6">
+            <p className="font-mono text-xs text-muted-foreground">
+              // Built to showcase what&apos;s possible when you dare to be different.
+            </p>
           </div>
         </div>
       </div>
