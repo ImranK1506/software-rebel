@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 
 const SEEN_KEY = 'sr-crawl-seen';
-const DURATION = 22000; // must match the sr-crawl animation length
+const DURATION = 25000; // must match the sr-crawl animation length
 const FADE = 600;       // must match the .leaving transition
 
 /**
