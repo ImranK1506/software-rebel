@@ -102,7 +102,7 @@ const Contact: React.FC = () => {
               </h2>
               <p className="mb-7 max-w-prose text-muted-foreground">
                 Ready to break some conventions? Send a transmission and let&apos;s create something
-                that stands out. Currently accepting select projects for Q2 2026.
+                that stands out. Currently open to select projects.
               </p>
 
               <div className="grid gap-1">

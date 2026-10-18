@@ -120,7 +120,7 @@ const Hero: React.FC = () => {
           <div className="fade-in-up flex flex-wrap items-center gap-x-4 gap-y-2 mb-8">
             <span className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.12em] text-foreground border border-border rounded-full px-3 py-1.5">
               <span className="w-1.5 h-1.5 rounded-full bg-green-400 shadow-[0_0_8px_#4ade80] animate-pulse" />
-              Open · Freelance Q2 2026
+              Open to select projects
             </span>
             <span className="font-mono text-xs uppercase tracking-[0.32em] text-primary">
               Amsterdam · NL
@@ -131,7 +131,7 @@ const Hero: React.FC = () => {
               doesn't crowd the left edge. */}
           <div className="fade-in-up">
             <h1 className="font-display uppercase font-bold tracking-tight leading-[0.86] text-6xl sm:text-7xl md:text-9xl mb-6 sm:mb-8">
-              <span className="block text-foreground">Imran</span>
+              <span className="block text-foreground">Imran</span>{' '}
               <span
                 className="block text-transparent"
                 style={{ WebkitTextStroke: '1.5px hsl(var(--gold))' }}

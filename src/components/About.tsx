@@ -76,7 +76,7 @@ const About: React.FC = () => {
                   React, Vue, TypeScript, StencilJS, and Python
                 </span>
                 , building applications that are fast, accessible, and built to scale. Currently
-                accepting select freelance projects for Q2 2026.
+                open to select freelance and contract work.
               </p>
 
               {/* Creed */}
