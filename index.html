@@ -5,10 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Imran Khan — Software Rebel · Front-End Engineer Portfolio</title>
   <link rel="icon" href="/favicon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="/favicon.png" />
+
+  <!-- Fonts: preconnect + a single stylesheet request, subset to the weights in use.
+       Loading this from the HTML (not via @import in CSS) removes one full round trip. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;900&family=Oswald:wght@600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+  />
   <link rel="canonical" href="https://softwarerebel.com/" />
   <meta name="theme-color" content="#0a0a0f" />
 
-  <meta name="description" content="Imran Khan (Software Rebel), a Front-End Engineer with 8+ years building large-scale, user-friendly web platforms. Specializing in React, TypeScript, Vue, and StencilJS." />  <meta name="author" content="Imran Khan" />
+  <meta name="description" content="Imran Khan (Software Rebel), a Front-End Engineer with 8+ years building large-scale, user-friendly web platforms. Specializing in React, TypeScript, Vue, and StencilJS." />
+  <meta name="author" content="Imran Khan" />
   <meta name="keywords" content="front-end developer, react developer, typescript, vue, stenciljs, web development, portfolio, software engineer, Amsterdam" />
 
   <!-- Open Graph -->
@@ -16,10 +27,17 @@
   <meta property="og:site_name" content="Software Rebel" />
   <meta property="og:url" content="https://softwarerebel.com/" />
   <meta property="og:title" content="Imran Khan — Software Rebel · Front-End Engineer" />
-  <meta property="og:description" content="Rebellious front-end engineer crafting fast, accessible digital experiences with 8+ years in React, TypeScript, Vue, and StencilJS." />  <meta property="og:image" content="https://softwarerebel.com/og-image.png" />
+  <meta property="og:description" content="Rebellious front-end engineer crafting fast, accessible digital experiences with 8+ years in React, TypeScript, Vue, and StencilJS." />
+  <meta property="og:image" content="https://softwarerebel.com/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Imran Khan — Software Rebel, Front-End Engineer" />
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Imran Khan — Software Rebel · Front-End Engineer" />
+  <meta name="twitter:description" content="Front-end engineer with 8+ years in React, TypeScript, Vue, and StencilJS — fast, accessible platforms built to scale." />
+  <meta name="twitter:image" content="https://softwarerebel.com/og-image.png" />
 
   <script type="application/ld+json">
     {
@@ -30,7 +48,7 @@
       "url": "https://softwarerebel.com/",
       "image": "https://softwarerebel.com/og-image.png",
       "jobTitle": "Front-End Engineer",
-      "email": "mailto:imran@softwarerebel.com",
+      "email": "imran@softwarerebel.com",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Amsterdam",
@@ -45,8 +63,8 @@
   </script>
 </head>
 
-<body>
+  <body>
   <div id="root"></div>
-  <script type="module" src="/src/main.tsx"></script>
+    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
