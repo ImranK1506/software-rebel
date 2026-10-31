@@ -1,30 +1,10 @@
 import React from 'react';
 import { useReveal } from '@/hooks/useReveal';
 import { cn } from '@/lib/utils';
+import { about, sections } from '@/data/site';
+import RichText from '@/components/RichText';
 
-interface Trait {
-  title: string;
-  description: string;
-}
-
-const traits: Trait[] = [
-  {
-    title: 'Clean Code Advocate',
-    description: 'Writing maintainable, scalable code that stands the test of time.',
-  },
-  {
-    title: 'Performance Obsessed',
-    description: 'Optimizing every millisecond for lightning-fast user experiences.',
-  },
-  {
-    title: 'User-Centric Design',
-    description: 'Building interfaces that users actually want to use.',
-  },
-  {
-    title: 'Innovation Driver',
-    description: 'Pushing boundaries with cutting-edge technologies and methodologies.',
-  },
-];
+const EMPHASIS = 'font-medium text-foreground';
 
 const About: React.FC = () => {
   const { ref, revealed } = useReveal<HTMLDivElement>();
@@ -36,15 +16,12 @@ const About: React.FC = () => {
           {/* Left-aligned section head (mockup-faithful) */}
           <div className="mb-14 max-w-[60ch]">
             <span className="mb-4 block font-mono text-xs uppercase tracking-[0.32em] text-primary">
-              01 · Dossier
+              {sections.about.eyebrow}
             </span>
             <h2 className="mb-4 font-display text-4xl font-semibold uppercase leading-none text-foreground md:text-5xl">
-              About the Rebel
+              {sections.about.title}
             </h2>
-            <p className="text-muted-foreground">
-              Many years in the trenches of front-end development — from startup MVPs to enterprise
-              platforms serving millions of users.
-            </p>
+            <p className="text-muted-foreground">{sections.about.intro}</p>
           </div>
 
           <div ref={ref} className="grid items-start gap-12 md:grid-cols-[1.2fr_0.8fr]">
@@ -56,38 +33,18 @@ const About: React.FC = () => {
                 revealed ? 'translate-x-0 opacity-100' : '-translate-x-6 opacity-0'
               )}
             >
-              <p>
-                Started as a self-taught developer with an insatiable curiosity for how the web works.
-                That curiosity turned into an 8-year journey building everything from scrappy MVPs to
-                production platforms serving millions of users.
-              </p>
-              <p>
-                Along the way, I've architected{' '}
-                <span className="font-medium text-foreground">e-commerce systems</span> handling 10M+
-                transactions, built <span className="font-medium text-foreground">design systems</span>{' '}
-                used across 15+ products, and created{' '}
-                <span className="font-medium text-foreground">real-time dashboards</span> processing
-                100K+ events per second. The common thread? An obsession with solving real problems with
-                elegant, performant solutions — not just chasing the latest tech trends.
-              </p>
-              <p>
-                Today I specialize in{' '}
-                <span className="font-medium text-foreground">
-                  React, Vue, TypeScript, StencilJS, and Python
-                </span>
-                , building applications that are fast, accessible, and built to scale. Currently
-                open to select freelance and contract work.
-              </p>
+              {about.paragraphs.map((parts, i) => (
+                <p key={i}>
+                  <RichText parts={parts} emClassName={EMPHASIS} />
+                </p>
+              ))}
 
               {/* Creed */}
               <div className="border-l-2 border-gold py-3 pl-5">
                 <p className="mb-1.5 font-display text-lg uppercase tracking-wide text-gold">
-                  “Code is poetry in motion.”
+                  {about.creed.quote}
                 </p>
-                <p className="text-sm text-muted-foreground">
-                  Every line should tell a story, solve a problem, and respect the next developer who
-                  reads it.
-                </p>
+                <p className="text-sm text-muted-foreground">{about.creed.body}</p>
               </div>
             </div>
 
@@ -98,7 +55,7 @@ const About: React.FC = () => {
                 revealed ? 'translate-x-0 opacity-100' : 'translate-x-6 opacity-0'
               )}
             >
-              {traits.map((trait, i) => (
+              {about.traits.map((trait, i) => (
                 <div
                   key={trait.title}
                   className="rounded-lg border border-border bg-card p-5 transition-colors hover:border-primary/40"
