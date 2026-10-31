@@ -1,6 +1,6 @@
 ---
 name: portfolio-audit
-description: "Report-only audit of softwarerebel.com and its repo: stale copy, build health, deploy status, SEO and accessibility basics. Use when asked to audit or check the portfolio."---
+description: "Report-only audit of softwarerebel.com and its repo: stale copy, build health, deploy status, SEO and accessibility basics. Use when asked to audit or check the portfolio."
 
 # Portfolio audit (report-only)
 
