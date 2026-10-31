@@ -1,11 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
-
-const links = [
-  { id: 'about', label: 'About' },
-  { id: 'projects', label: 'Missions' },
-  { id: 'skills', label: 'Loadout' },
-];
+import { nav, profile } from '@/data/site';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -17,11 +12,6 @@ const Header = () => {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const scrollToSection = (sectionId: string) => {
-    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
-    setMenuOpen(false);
-  };
 
   return (
     <header
@@ -38,26 +28,26 @@ const Header = () => {
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             className="font-mono text-base font-semibold text-foreground transition-opacity hover:opacity-80"
           >
-            &lt;<span className="text-gold">softwarerebel</span> /&gt;
+            &lt;<span className="text-gold">{profile.handle}</span> /&gt;
           </button>
 
           {/* Desktop nav */}
           <div className="hidden items-center gap-1 md:flex">
-            {links.map((link) => (
-              <button
+            {nav.links.map((link) => (
+              <a
                 key={link.id}
-                onClick={() => scrollToSection(link.id)}
+                href={`#${link.id}`}
                 className="rounded-md px-3.5 py-2 font-mono text-sm tracking-wide text-muted-foreground transition-colors hover:bg-primary/10 hover:text-foreground"
               >
                 {link.label}
-              </button>
+              </a>
             ))}
-            <button
-              onClick={() => scrollToSection('contact')}
+            <a
+              href={`#${nav.cta.id}`}
               className="ml-2 rounded-md border border-gold px-4 py-2 font-mono text-sm font-semibold uppercase tracking-wider text-gold transition-colors hover:bg-gold hover:text-gold-foreground"
             >
-              Open Comms
-            </button>
+              {nav.cta.label}
+            </a>
           </div>
 
           {/* Mobile toggle */}
@@ -74,21 +64,23 @@ const Header = () => {
         {/* Mobile menu */}
         {menuOpen && (
           <div className="mt-4 grid gap-1 border-t border-border pt-4 md:hidden">
-            {links.map((link) => (
-              <button
+            {nav.links.map((link) => (
+              <a
                 key={link.id}
-                onClick={() => scrollToSection(link.id)}
+                href={`#${link.id}`}
+                onClick={() => setMenuOpen(false)}
                 className="rounded-md px-3.5 py-3 text-left font-mono text-sm text-muted-foreground transition-colors hover:bg-primary/10 hover:text-foreground"
               >
                 {link.label}
-              </button>
+              </a>
             ))}
-            <button
-              onClick={() => scrollToSection('contact')}
+            <a
+              href={`#${nav.cta.id}`}
+              onClick={() => setMenuOpen(false)}
               className="mt-1 rounded-md border border-gold px-4 py-3 text-left font-mono text-sm font-semibold uppercase tracking-wider text-gold transition-colors hover:bg-gold hover:text-gold-foreground"
             >
-              Open Comms
-            </button>
+              {nav.cta.label}
+            </a>
           </div>
         )}
       </nav>

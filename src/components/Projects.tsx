@@ -2,59 +2,7 @@ import React from 'react';
 import { ExternalLink, Github } from 'lucide-react';
 import { useReveal } from '@/hooks/useReveal';
 import { cn } from '@/lib/utils';
-
-interface Project {
-  code: string;
-  title: string;
-  description: string;
-  tech: string[];
-  impact: string;
-  impactLabel?: string;
-  flag?: string;
-  liveUrl?: string;
-  repoUrl?: string;
-}
-
-const projects: Project[] = [
-  {
-    code: 'MSN-01',
-    title: 'E-Commerce Platform',
-    description:
-      'Built a high-performance React/TypeScript platform handling 10M+ monthly transactions. Implemented a micro-frontends architecture with 99.9% uptime.',
-    tech: ['React', 'TypeScript', 'Node.js', 'PostgreSQL', 'Redis'],
-    impact: 'Increased conversion rate by 35% and reduced page load times by 60%.',
-    flag: 'Featured',
-  },
-  {
-    code: 'MSN-02',
-    title: 'Real-Time Analytics Dashboard',
-    description:
-      'Created a real-time data-visualization platform processing 100K+ events per second. Custom WebSocket implementation with D3.js visualizations.',
-    tech: ['React', 'D3.js', 'WebSocket', 'Python', 'ClickHouse'],
-    impact: 'Reduced decision-making time by 80% for data teams.',
-    flag: 'Featured',
-  },
-  {
-    code: 'MSN-03',
-    title: 'Design System & Component Library',
-    description:
-      'Architected and maintained a comprehensive design system used across 15+ products. Built with accessibility-first principles and comprehensive testing.',
-    tech: ['React', 'Storybook', 'TypeScript', 'Jest', 'Figma'],
-    impact: 'Reduced development time by 50% across all product teams.',
-  },
-  {
-    code: 'MSN-04',
-    title: 'Filmpire — Movie Discovery App',
-    description:
-      'A full-stack movie-discovery app — React front end, Node.js back end, integrated with third-party APIs for movie data. Built as a public, end-to-end showcase.',
-    tech: ['React', 'Node.js', 'Express', 'MongoDB', 'TMDb API'],
-    impact: 'A real, shippable build you can open and use right now.',
-    impactLabel: 'Note',
-    flag: 'Live Demo',
-    liveUrl: 'https://filmpire-tmdb-react.netlify.app',
-    repoUrl: 'https://github.com/ImranK1506/react-filmpire',
-  },
-];
+import { projects, sections, type Project } from '@/data/site';
 
 const DossierCard: React.FC<{ project: Project }> = ({ project }) => {
   const { ref, revealed } = useReveal<HTMLDivElement>();
@@ -150,21 +98,18 @@ const DossierCard: React.FC<{ project: Project }> = ({ project }) => {
 
 const Projects: React.FC = () => {
   return (
-    <section id="projects" className="py-28">
+    <section id="work" className="py-28">
       <div className="container mx-auto px-6">
         <div className="mx-auto max-w-5xl">
           {/* Left-aligned section head (mockup-faithful) */}
           <div className="mb-14 max-w-[60ch]">
             <span className="mb-4 block font-mono text-xs uppercase tracking-[0.32em] text-primary">
-              02 · Mission Log
+              {sections.work.eyebrow}
             </span>
             <h2 className="mb-4 font-display text-4xl font-semibold uppercase leading-none text-foreground md:text-5xl">
-              Featured Missions
+              {sections.work.title}
             </h2>
-            <p className="text-muted-foreground">
-              A selection of work where rebellion meets craftsmanship — each one pushed boundaries and
-              delivered measurable impact.
-            </p>
+            <p className="text-muted-foreground">{sections.work.intro}</p>
           </div>
 
           <div className="grid gap-5 md:gap-6">

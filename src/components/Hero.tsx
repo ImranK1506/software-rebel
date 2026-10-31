@@ -1,5 +1,6 @@
-import React, { useEffect, useRef, useCallback } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Github, Linkedin, Mail, ArrowRight } from 'lucide-react';
+import { heroCtas, profile } from '@/data/site';
 
 interface Star {
   x: number;
@@ -13,10 +14,6 @@ interface Star {
 
 const Hero: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-
-  const scrollToProjects = useCallback(() => {
-    document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
-  }, []);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -120,10 +117,10 @@ const Hero: React.FC = () => {
           <div className="fade-in-up flex flex-wrap items-center gap-x-4 gap-y-2 mb-8">
             <span className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.12em] text-foreground border border-border rounded-full px-3 py-1.5">
               <span className="w-1.5 h-1.5 rounded-full bg-green-400 shadow-[0_0_8px_#4ade80] animate-pulse" />
-              Open to select projects
+              {profile.availability}
             </span>
             <span className="font-mono text-xs uppercase tracking-[0.32em] text-primary">
-              Amsterdam · NL
+              {profile.city} · {profile.countryCode}
             </span>
           </div>
 
@@ -131,20 +128,20 @@ const Hero: React.FC = () => {
               doesn't crowd the left edge. */}
           <div className="fade-in-up">
             <h1 className="font-display uppercase font-bold tracking-tight leading-[0.86] text-6xl sm:text-7xl md:text-9xl mb-6 sm:mb-8">
-              <span className="block text-foreground">Imran</span>{' '}
+              <span className="block text-foreground">{profile.firstName}</span>{' '}
               <span
                 className="block text-transparent"
                 style={{ WebkitTextStroke: '1.5px hsl(var(--gold))' }}
               >
-                Khan
+                {profile.lastName}
               </span>
             </h1>
             <p className="font-mono text-sm md:text-base uppercase tracking-[0.18em] text-primary mb-4">
-              Front-End Engineer
+              {profile.title}
             </p>
             <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-10 sm:mb-12 font-light max-w-2xl">
-              <span className="text-foreground font-medium">Breaking conventions, building the future.</span>{' '}
-              React, TypeScript &amp; StencilJS — built to scale.
+              <span className="text-foreground font-medium">{profile.tagline}.</span>{' '}
+              {profile.summary}
             </p>
           </div>
 
@@ -153,26 +150,26 @@ const Hero: React.FC = () => {
             className="fade-in-up flex flex-col sm:flex-row gap-4 items-start sm:items-center mb-12"
             style={{ animationDelay: '0.4s' }}
           >
-            <button
-              onClick={scrollToProjects}
+            <a
+              href={heroCtas.primary.href}
               className="group glow-on-hover bg-primary text-primary-foreground font-mono uppercase text-sm font-semibold tracking-wider px-7 py-4 rounded-md inline-flex items-center gap-3"
               style={{ boxShadow: '0 0 22px hsl(var(--primary) / 0.35)' }}
             >
-              View Missions
+              {heroCtas.primary.label}
               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-            </button>
+            </a>
             <a
-              href="#contact"
+              href={heroCtas.secondary.href}
               className="font-mono uppercase text-sm font-semibold tracking-wider px-7 py-4 rounded-md border border-border text-foreground hover:border-primary hover:text-primary transition-colors"
             >
-              Open Comms
+              {heroCtas.secondary.label}
             </a>
           </div>
 
           {/* Socials */}
           <div className="fade-in-up flex gap-3" style={{ animationDelay: '0.6s' }}>
             <a
-              href="https://github.com/ImranK1506"
+              href={profile.github.href}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub"
@@ -181,7 +178,7 @@ const Hero: React.FC = () => {
               <Github size={20} />
             </a>
             <a
-              href="https://www.linkedin.com/in/imran-khan-se/"
+              href={profile.linkedin.href}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
@@ -190,7 +187,7 @@ const Hero: React.FC = () => {
               <Linkedin size={20} />
             </a>
             <a
-              href="mailto:imran@softwarerebel.com"
+              href={`mailto:${profile.email}`}
               aria-label="Email"
               className="grid place-items-center w-11 h-11 border border-border rounded-md text-muted-foreground hover:text-primary hover:border-primary transition-colors"
             >
