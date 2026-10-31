@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Github, Linkedin, Send, Check, AlertTriangle } from 'lucide-react';
+import { contactForm, profile, sections } from '@/data/site';
 
 /**
  * Web3Forms access key. This is intentionally PUBLIC and safe to ship in client
@@ -11,8 +12,6 @@ import { Mail, Phone, MapPin, Github, Linkedin, Send, Check, AlertTriangle } fro
 const WEB3FORMS_ACCESS_KEY =
   import.meta.env.VITE_WEB3FORMS_KEY ?? 'YOUR_ACCESS_KEY_HERE';
 
-const EMAIL = 'imran@softwarerebel.com';
-
 interface Channel {
   icon: React.ReactNode;
   label: string;
@@ -22,11 +21,13 @@ interface Channel {
 }
 
 const channels: Channel[] = [
-  { icon: <Mail className="h-4 w-4" />, label: 'Email', value: EMAIL, href: `mailto:${EMAIL}` },
-  { icon: <Phone className="h-4 w-4" />, label: 'Phone', value: '+31 6 37336418', href: 'tel:+31637336418' },
-  { icon: <MapPin className="h-4 w-4" />, label: 'Location', value: 'Amsterdam, The Netherlands' },
-  { icon: <Github className="h-4 w-4" />, label: 'GitHub', value: 'github.com/ImranK1506', href: 'https://github.com/ImranK1506', external: true },
-  { icon: <Linkedin className="h-4 w-4" />, label: 'LinkedIn', value: 'in/imran-khan-se', href: 'https://www.linkedin.com/in/imran-khan-se/', external: true },
+  { icon: <Mail className="h-4 w-4" />, label: 'Email', value: profile.email, href: `mailto:${profile.email}` },
+  ...(profile.phone
+    ? [{ icon: <Phone className="h-4 w-4" />, label: 'Phone', value: profile.phone.display, href: profile.phone.href }]
+    : []),
+  { icon: <MapPin className="h-4 w-4" />, label: 'Location', value: `${profile.city}, ${profile.country}` },
+  { icon: <Github className="h-4 w-4" />, label: 'GitHub', value: profile.github.display, href: profile.github.href, external: true },
+  { icon: <Linkedin className="h-4 w-4" />, label: 'LinkedIn', value: profile.linkedin.display, href: profile.linkedin.href, external: true },
 ];
 
 type Status = 'idle' | 'sending' | 'success' | 'error';
@@ -59,7 +60,7 @@ const Contact: React.FC = () => {
         body: JSON.stringify({
           access_key: WEB3FORMS_ACCESS_KEY,
           subject: `New transmission from ${name} — softwarerebel.com`,
-          from_name: 'Software Rebel Portfolio',
+          from_name: `${profile.brand} Portfolio`,
           name,
           email,
           message,
@@ -95,15 +96,12 @@ const Contact: React.FC = () => {
             {/* Left — invitation + channels */}
             <div>
               <span className="mb-4 block font-mono text-xs uppercase tracking-[0.32em] text-primary">
-                04 · Open Channel
+                {sections.contact.eyebrow}
               </span>
               <h2 className="mb-4 font-display text-3xl font-semibold uppercase leading-tight text-foreground md:text-4xl">
-                Let&apos;s build something rebellious.
+                {sections.contact.title}
               </h2>
-              <p className="mb-7 max-w-prose text-muted-foreground">
-                Ready to break some conventions? Send a transmission and let&apos;s create something
-                that stands out. Currently open to select projects.
-              </p>
+              <p className="mb-7 max-w-prose text-muted-foreground">{sections.contact.intro}</p>
 
               <div className="grid gap-1">
                 {channels.map((c) => {
@@ -203,10 +201,10 @@ const Contact: React.FC = () => {
                 style={{ boxShadow: '0 0 22px hsl(var(--primary) / 0.35)' }}
               >
                 {sending ? (
-                  'Transmitting…'
+                  contactForm.sending
                 ) : (
                   <>
-                    Start a Transmission
+                    {contactForm.submit}
                     <Send className="h-4 w-4" />
                   </>
                 )}
@@ -217,15 +215,15 @@ const Contact: React.FC = () => {
                 {status === 'success' && (
                   <p className="flex items-center gap-2 text-sm text-primary">
                     <Check className="h-4 w-4" />
-                    Transmission received — I&apos;ll get back to you shortly.
+                    {contactForm.success}
                   </p>
                 )}
                 {status === 'error' && (
                   <p className="flex items-center gap-2 text-sm text-rebel">
                     <AlertTriangle className="h-4 w-4" />
                     Something went wrong. Email me directly at{' '}
-                    <a href={`mailto:${EMAIL}`} className="underline underline-offset-2 hover:text-foreground">
-                      {EMAIL}
+                    <a href={`mailto:${profile.email}`} className="underline underline-offset-2 hover:text-foreground">
+                      {profile.email}
                     </a>
                     .
                   </p>
