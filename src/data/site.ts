@@ -39,7 +39,6 @@ export interface Profile {
   city: string;
   country: string;
   countryCode: string;
-  availability: string;
   /** Hero and footer tagline, without the trailing full stop. */
   tagline: string;
   summary: string;
@@ -55,15 +54,13 @@ export const profile: Profile = {
   lastName: 'Khan',
   handle: 'softwarerebel',
   brand: 'Software Rebel',
-  title: 'Front-End Engineer',
+  title: 'Senior Front-End Engineer',
   city: 'Amsterdam',
   country: 'The Netherlands',
   countryCode: 'NL',
-  availability: 'Open to select projects',
   tagline: 'Breaking conventions, building the future',
-  summary: 'React, TypeScript & StencilJS — built to scale.',
+  summary: 'I build products that a lot of people use every day.',
   email: 'imran@softwarerebel.com',
-  phone: { display: '+31 6 37336418', href: 'tel:+31637336418' },
   github: { display: 'github.com/ImranK1506', href: 'https://github.com/ImranK1506' },
   linkedin: {
     display: 'in/imran-khan-se',
@@ -117,7 +114,7 @@ export const sections: Record<'about' | 'work' | 'skills' | 'contact', SectionHe
     eyebrow: '04 · Open Channel',
     title: "Let's build something rebellious.",
     intro:
-      "Ready to break some conventions? Send a transmission and let's create something that stands out. Currently open to select projects.",
+      "Ready to break some conventions? Send a transmission and let's create something that stands out.",
   },
 };
 
@@ -147,7 +144,7 @@ export const about = {
     [
       'Today I specialize in ',
       { em: 'React, Vue, TypeScript, StencilJS, and Python' },
-      ', building applications that are fast, accessible, and built to scale. Currently open to select freelance and contract work.',
+      ', building applications that are fast, accessible, and built to scale.',
     ],
   ] as Rich[],
   creed: {

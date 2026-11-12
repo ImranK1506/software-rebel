@@ -113,12 +113,8 @@ const Hero: React.FC = () => {
 
       <div className="container mx-auto px-6 py-20 relative z-20">
         <div className="max-w-3xl">
-          {/* Status row — items wrap as whole pills, never mid-pill */}
+          {/* Location label */}
           <div className="fade-in-up flex flex-wrap items-center gap-x-4 gap-y-2 mb-8">
-            <span className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.12em] text-foreground border border-border rounded-full px-3 py-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-green-400 shadow-[0_0_8px_#4ade80] animate-pulse" />
-              {profile.availability}
-            </span>
             <span className="font-mono text-xs uppercase tracking-[0.32em] text-primary">
               {profile.city} · {profile.countryCode}
             </span>
